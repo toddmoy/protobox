@@ -1,7 +1,12 @@
 import './App.css'
+import Welcome from './components/Welcome'
 
 function App() {
-  return <p className="underline center-content h-screen">Hi</p>
+  return (
+    <div className="center-content h-screen">
+      <Welcome />
+    </div>
+  )
 }
 
 export default App

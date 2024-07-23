@@ -1,9 +1,3 @@
-export const Welcome = ({ name }) => (
-  <h1 className="pb-center-items h-screen underline font-bold text-2xl font-sans center">
-    👋🏽 {name}!
-  </h1>
-)
+const Welcome = () => <p className="underline">Hi</p>
 
-Welcome.propTypes = {
-  name: String,
-}
+export default Welcome
