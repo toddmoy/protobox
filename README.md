@@ -6,7 +6,7 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox.
 - [x] Tailwind
 - [ ] Storybook
 - [ ] CSS Modules
-- [ ] Framer Motion
+- [x] Framer Motion
 - [x] Feather icons
 
 ## Usage
@@ -16,6 +16,7 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox.
 ## Tips & Tricks
 
 ### Add an icon
+
 We use `react-icons` to easily insert icons from different libraries. [Browse
 icons](https://react-icons.github.io/react-icons/)
 
@@ -25,4 +26,12 @@ import { FiBox } from "react-icons/fi"
 ...
 
 <FiBox size={40} />
+```
+
+### Use animation
+
+```
+import { motion } from 'framer-motion'
+
+<motion.div animate={{y:-20}}>...</motion.div>
 ```
