@@ -35,3 +35,10 @@ import { motion } from 'framer-motion'
 
 <motion.div animate={{y:-20}}>...</motion.div>
 ```
+
+### Use modules
+CSS modules make it easy to use generic classnames without fear they will have side effects.
+
+1. Create a file `<Name>.module.css`
+2. Import it `import styles from `./path/to/<Name>.module.css`
+3. Use it `class={styles.<classname>}`
