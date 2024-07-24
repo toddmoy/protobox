@@ -5,7 +5,7 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox.
 - [x] React / Vite
 - [x] Tailwind
 - [ ] Storybook
-- [ ] CSS Modules
+- [x] CSS Modules
 - [x] Framer Motion
 - [x] Feather icons
 
