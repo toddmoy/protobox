@@ -8,12 +8,20 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox.
 - [x] CSS Modules
 - [x] Framer Motion
 - [x] Feather icons
+- [x] Hotkeys
 
 ## Usage
 
 [Open in Codesandbox](https://codesandbox.io/p/devbox/github/toddmoy/protobox)
 
 ## Tips & Tricks
+
+### Add a keyboard shortcut
+import the package and add this into the component:
+
+```
+useHotKeys('ctrl+/', () => { alert("hi") })
+```
 
 ### Add an icon
 
