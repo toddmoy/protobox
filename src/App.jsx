@@ -4,7 +4,7 @@ import Welcome from './components/Welcome'
 function App() {
   return (
     <div className="center-content h-screen">
-      <Welcome />
+      <Welcome /> 
     </div>
   )
 }
