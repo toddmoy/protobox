@@ -9,6 +9,7 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox.
 - [x] Framer Motion
 - [x] Feather icons
 - [x] Hotkeys
+- [x] Faker
 
 ## Usage
 
