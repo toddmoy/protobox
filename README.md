@@ -51,3 +51,13 @@ CSS modules make it easy to use generic classnames without fear they will have s
 1. Create a file `<Name>.module.css`
 2. Import it `import styles from `./path/to/<Name>.module.css`
 3. Use it `class={styles.<classname>}`
+
+# Use fake data
+
+```
+import { faker } from '@faker-js/faker'
+
+const name = faker.person.fullName()
+```
+
+You can also import different languages for fuzzing. [Learn more](https://fakerjs.dev/guide/usage.html)
