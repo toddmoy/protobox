@@ -10,6 +10,8 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox.
 - [x] Feather icons
 - [x] Hotkeys
 - [x] Faker
+- [x] Typescript
+- [x] React Router
 
 ## Usage
 
