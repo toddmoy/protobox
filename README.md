@@ -54,10 +54,24 @@ CSS modules make it easy to use generic classnames without fear they will have s
 
 # Use fake data
 
+Fake data generation is provided by [FakerJS](https://fakerjs.dev/guide/usage.html)
+
 ```
 import { faker } from '@faker-js/faker'
 
 const name = faker.person.fullName()
 ```
 
-You can also import different languages for fuzzing. [Learn more](https://fakerjs.dev/guide/usage.html)
+# Add a page
+
+Routing is provided by [React Router](https://reactrouter.com/en/main/start/tutorial).
+
+```
+// App.jsx
+
+<Routes>
+...
+  <Route path="/foo" component={Foo} />
+...
+</Routes>
+```

@@ -1,15 +1,14 @@
 import './App.css'
 import Welcome from './components/Welcome'
-import { faker } from '@faker-js/faker'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="center-content h-screen flex-col gap-4">
-      <Welcome />
-      <p className="text-xs text-zinc-400">
-        Made with 🖤 by {faker.person.fullName()}
-      </p>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" Component={Welcome} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
