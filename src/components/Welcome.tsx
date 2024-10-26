@@ -3,6 +3,10 @@ import { motion } from 'framer-motion'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { faker } from '@faker-js/faker'
 import styles from './Welcome.module.css'
+import Tag from './Tag'
+import Button from './Button'
+import Input from './Input'
+import Toggle from './Toggle'
 
 const Welcome = () => {
   useHotkeys('ctrl+/', () => {
@@ -21,6 +25,14 @@ const Welcome = () => {
       <p className="text-xs text-zinc-400">
         Created with 🖤 by {faker.person.fullName()}
       </p>
+      <Tag icon={<FiBox />} isRemovable label={faker.person.firstName()} />
+      <Button
+        leadingIcon={<FiBox />}
+        trailingIcon={<FiBox />}
+        label={faker.person.firstName()}
+      />
+      <Input leadingIcon={<FiBox />} placeholder="Foo" />
+      <Toggle />
     </div>
   )
 }
