@@ -1,0 +1,57 @@
+import { ReactNode, useState } from 'react'
+
+interface InputProps {
+  placeholder?: string
+  leadingIcon?: ReactNode
+  trailingIcon?: ReactNode
+}
+
+const Input: React.FC<InputProps> = ({
+  placeholder,
+  leadingIcon,
+  trailingIcon,
+}) => {
+  const [value, setValue] = useState('')
+
+  const handleChange = (e) => {
+    setValue(e.target.value)
+  }
+
+  return (
+    <FieldWrapper>
+      {leadingIcon && (
+        <InputIcon icon={leadingIcon} className="absolute left-2" />
+      )}
+      <input
+        className={`bg-transparent text-base py-2 rounded-lg w-full ${leadingIcon ? 'pl-7' : 'pl-4'}  ${trailingIcon ? 'pr-7' : 'pr-4'}`}
+        value={value}
+        onChange={handleChange}
+        placeholder={placeholder}
+      />
+      {trailingIcon && (
+        <InputIcon icon={trailingIcon} className="absolute right-2" />
+      )}
+    </FieldWrapper>
+  )
+}
+
+interface FieldWrapperProps {
+  children: ReactNode
+}
+
+const FieldWrapper: React.FC<FieldWrapperProps> = ({ children }) => (
+  <div className="border border-zinc-300 rounded-lg flex items-center justify-center relative w-full">
+    {children}
+  </div>
+)
+
+interface InputIconProps {
+  icon: ReactNode
+  className?: string
+}
+
+const InputIcon: React.FC<InputIconProps> = ({ icon, className }) => (
+  <span className={className}>{icon}</span>
+)
+
+export default Input
