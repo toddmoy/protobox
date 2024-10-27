@@ -23,7 +23,7 @@ const Input: React.FC<InputProps> = ({
         <InputIcon icon={leadingIcon} className="absolute left-2" />
       )}
       <input
-        className={`bg-transparent text-base py-2 rounded-lg w-full ${leadingIcon ? 'pl-7' : 'pl-4'}  ${trailingIcon ? 'pr-7' : 'pr-4'}`}
+        className={`bg-transparent text-base py-2 rounded-lg w-full focus-visible:outline-offset-4 focus-visible:outline-purple-400 ${leadingIcon ? 'pl-7' : 'pl-4'}  ${trailingIcon ? 'pr-7' : 'pr-4'}`}
         value={value}
         onChange={handleChange}
         placeholder={placeholder}
