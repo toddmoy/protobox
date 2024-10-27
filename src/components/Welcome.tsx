@@ -25,14 +25,6 @@ const Welcome = () => {
       <p className="text-xs text-zinc-400">
         Created with 🖤 by {faker.person.fullName()}
       </p>
-      <Tag icon={<FiBox />} isRemovable label={faker.person.firstName()} />
-      <Button
-        leadingIcon={<FiBox />}
-        trailingIcon={<FiBox />}
-        label={faker.person.firstName()}
-      />
-      <Input leadingIcon={<FiBox />} placeholder="Foo" />
-      <Toggle />
     </div>
   )
 }
