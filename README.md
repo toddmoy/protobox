@@ -4,7 +4,6 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox.
 
 - [x] React / Vite
 - [x] Tailwind
-- [ ] Storybook
 - [x] CSS Modules
 - [x] Framer Motion
 - [x] Feather icons
@@ -12,10 +11,21 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox.
 - [x] Faker
 - [x] Typescript
 - [x] React Router
+- [x] Custom easing curves
 
 ## Usage
 
-[Open in Codesandbox](https://codesandbox.io/p/devbox/github/toddmoy/protobox)
+- [Open in Codesandbox](https://codesandbox.io/p/devbox/github/toddmoy/protobox)
+- [Use repo template](https://github.com/new?template_name=protobox&template_owner=toddmoy)
+
+## Components
+
+- Button
+- Tag
+- Input
+- Toggle
+- _Select_
+- ...
 
 ## Tips & Tricks
 

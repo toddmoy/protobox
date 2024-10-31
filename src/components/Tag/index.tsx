@@ -25,10 +25,16 @@ const Tag: React.FC<TagProps> = ({
   onRemove,
 }) => {
   const cn = {
-    base: ['flex', 'items-center', 'justify-center', 'gap-1', 'select-none'],
+    base: [
+      'inline-flex',
+      'items-center',
+      'justify-center',
+      'gap-1',
+      'select-none',
+    ],
     size: {
       small: ['px-2 py-1 text-xs rounded-md'],
-      medium: ['px-3 py-2 text-md rounded-lg'],
+      medium: ['px-4 py-2 text-md rounded-lg'],
     },
     color: {
       zinc: ['bg-zinc-950 text-white fill-white'],
@@ -46,7 +52,7 @@ const Tag: React.FC<TagProps> = ({
   return (
     <div className={classes} style={style} onClick={onClick}>
       <div className="flex gap-1 items-center justify-center">
-        <span>{icon}</span>
+        {icon && <span>{icon}</span>}
         <span>{label}</span>
       </div>
       {isRemovable && <CloseButton onClick={onRemove} />}

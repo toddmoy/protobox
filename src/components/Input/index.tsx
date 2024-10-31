@@ -1,20 +1,25 @@
-import { ReactNode, useState } from 'react'
+import { ChangeEvent, ReactNode, useState } from 'react'
 
 interface InputProps {
   placeholder?: string
   leadingIcon?: ReactNode
   trailingIcon?: ReactNode
+  onChange?: () => void
 }
 
 const Input: React.FC<InputProps> = ({
   placeholder,
   leadingIcon,
   trailingIcon,
+  onChange,
 }) => {
   const [value, setValue] = useState('')
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent) => {
     setValue(e.target.value)
+    if (onChange) {
+      onChange()
+    }
   }
 
   return (
