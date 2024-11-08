@@ -12,7 +12,7 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox.
 - [x] Typescript
 - [x] React Router
 - [x] Custom easing curves
-- [x] Hooks ([usehooks-ts](https://usehooks-ts.com/))
+- [x] Hooks ([usehooks-ts](https://usehooks-ts.com/) and [uihooks](https://usehooks.com/))
 
 ## Usage
 
