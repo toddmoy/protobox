@@ -79,6 +79,22 @@ const name = faker.person.fullName()
 
 Routing is provided by [React Router](https://reactrouter.com/en/main/start/tutorial).
 
+# Position something relative to another
+
+Use the `usePosition` hook. Make sure the positioned element has a predictable width.
+
+```
+import usePosition from "./hooks/usePosition"
+
+const buttonRef = useRef(null)
+const { ref: menuRef, style } = usePosition(buttonRef, {
+  position: 'left',
+  alignment: 'start',
+})
+
+<button ref={buttonRef}>Target</button>
+
+<div ref={menuRef} className="w-52" style={style}>Tooltip</div>
 ```
 // App.jsx
 
