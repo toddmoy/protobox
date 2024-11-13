@@ -14,6 +14,7 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox.
 - [x] Custom easing curves
 - [x] Hooks: ([usehooks-ts](https://usehooks-ts.com/) and [uihooks](https://usehooks.com/))
 - [x] [clsx](https://www.npmjs.com/package/clsx) for classnames
+- [ ] Radix unstyled components
 
 ## Usage
 
