@@ -1,14 +1,14 @@
 import './App.css'
 import Welcome from './components/Welcome'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Parts from './pages/parts'
+import NewPage from './pages/newPage'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route exact path="/" Component={Welcome} />
-        <Route path="/parts" Component={Parts} />
+        <Route path="/new-page" Component={NewPage} />
       </Routes>
     </BrowserRouter>
   )
