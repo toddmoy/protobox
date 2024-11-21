@@ -24,6 +24,22 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox.
 
 ## Tips & Tricks
 
+### Add a component
+Using shadcn: 
+
+```
+npx shadcn-ui@latest add button
+```
+then use it like so: 
+
+```
+import { Button } from "@/components/ui/button"
+...
+
+<Button>Click me</Button>
+```
+
+
 ### Add a keyboard shortcut
 import the package and add this into the component:
 
