@@ -3,10 +3,6 @@ import { motion } from 'framer-motion'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { faker } from '@faker-js/faker'
 import styles from './Welcome.module.css'
-import Tag from './Tag'
-import Button from './Button'
-import Input from './Input'
-import Toggle from './Toggle'
 
 const Welcome = () => {
   useHotkeys('ctrl+/', () => {
