@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { faker } from '@faker-js/faker'
 import styles from './Welcome.module.css'
+import { Button } from 'toddmoy-ui'
 
 const Welcome = () => {
   useHotkeys('ctrl+/', () => {
@@ -21,6 +22,9 @@ const Welcome = () => {
       <p className="text-xs text-zinc-400">
         Created with 🖤 by {faker.person.fullName()}
       </p>
+      <Button variant={{ intent: 'primary' }} onClick={() => alert('Clicked!')}>
+        Click me
+      </Button>
     </div>
   )
 }
