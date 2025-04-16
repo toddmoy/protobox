@@ -12,5 +12,6 @@ alwaysApply: true
 - Use `clsx` for style variants or to apply css classes conditionally
 - Use `framer-motion` to animate elements.
 - Add new components into `/src/components`.
-- Add new images, fonts, videos, or other assets into `/src/assets`.
+- Add new images, fonts, videos, or other  assets into `/src/assets`.
+- For placeholder and fake data, generate it randomly or use `faker`
 
