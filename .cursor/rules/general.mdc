@@ -1,0 +1,16 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# General
+
+- Prefer immutable css. Use inline `tailwind` classes. 
+- Prefer the `zinc` family of colors. Add color only when requested. 
+- Use `lucide-react` for icons.
+- Use `clsx` for style variants or to apply css classes conditionally
+- Use `framer-motion` to animate elements.
+- Add new components into `/src/components`.
+- Add new images, fonts, videos, or other assets into `/src/assets`.
+
