@@ -1,12 +1,12 @@
 # Protobox
 
-An opinionated prototyping boilerplate for Codesandbox's Devbox.
+An opinionated prototyping boilerplate for Codesandbox's Devbox or local development.
 
 - [x] React / Vite
 - [x] Tailwind
 - [x] CSS Modules
 - [x] Framer Motion
-- [x] Feather icons
+- [x] Lucide icons
 - [x] Hotkeys
 - [x] Faker
 - [x] Typescript
