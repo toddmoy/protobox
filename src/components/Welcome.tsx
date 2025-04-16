@@ -18,9 +18,7 @@ const Welcome = () => {
         <FiBox size={40} />
         <p className="font-bold">Protobox</p>
       </motion.div>
-      <p className="text-xs text-zinc-400">
-        Created with 🖤 by {faker.person.fullName()}
-      </p>
+      <p className="text-xs text-zinc-400">Created with 🖤 by {faker.person.fullName()}</p>
     </div>
   )
 }
