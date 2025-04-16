@@ -21,16 +21,17 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox or local develop
 - [Open in Codesandbox](https://codesandbox.io/p/devbox/github/toddmoy/protobox)
 - [Use repo template](https://github.com/new?template_name=protobox&template_owner=toddmoy)
 
-
 ## Tips & Tricks
 
 ### Add a component
-Using shadcn: 
+
+Using shadcn:
 
 ```
 npx shadcn-ui@latest add button
 ```
-then use it like so: 
+
+then use it like so:
 
 ```
 import { Button } from "@/components/ui/button"
@@ -39,8 +40,8 @@ import { Button } from "@/components/ui/button"
 <Button>Click me</Button>
 ```
 
-
 ### Add a keyboard shortcut
+
 import the package and add this into the component:
 
 ```
@@ -69,6 +70,7 @@ import { motion } from 'framer-motion'
 ```
 
 ### Use modules
+
 CSS modules make it easy to use generic classnames without fear they will have side effects.
 
 1. Create a file `<Name>.module.css`
@@ -106,6 +108,7 @@ const { ref: menuRef, style } = usePosition(buttonRef, {
 
 <div ref={menuRef} className="w-52" style={style}>Tooltip</div>
 ```
+
 // App.jsx
 
 <Routes>
