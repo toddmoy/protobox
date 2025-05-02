@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { faker } from '@faker-js/faker'
 import styles from './Welcome.module.css'
+import { Badge } from '@/components/ui/badge'
 
 const Welcome = () => {
   useHotkeys('ctrl+/', () => {
@@ -18,6 +19,7 @@ const Welcome = () => {
         <FiBox size={40} />
         <p className="font-bold">Protobox</p>
       </motion.div>
+      <Badge variant="secondary">Last updated {faker.date.recent().toLocaleDateString()}</Badge>
       <p className="text-xs text-zinc-400">Created with 🖤 by {faker.person.fullName()}</p>
     </div>
   )
