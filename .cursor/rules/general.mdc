@@ -1,17 +1,18 @@
 ---
-description: 
-globs: 
+description:
+globs:
 alwaysApply: true
 ---
 
 # General
 
-- Prefer immutable css. Use inline `tailwind` classes. 
-- Prefer the `zinc` family of colors. Add color only when requested. 
+- Prefer immutable css. Use inline `tailwind` classes.
+- Prefer the `neutral` family of colors. Add color only when requested.
 - Use `lucide-react` for icons.
+- Add <Tooltip />` for all buttons without a visible label.
 - Use `clsx` for style variants or to apply css classes conditionally
 - Use `framer-motion` to animate elements.
 - Add new components into `/src/components`.
 - Add new images, fonts, videos, or other  assets into `/src/assets`.
 - For placeholder and fake data, generate it randomly or use `faker`
-
+- Prefer `shadcn.com` components for UI elements. Many are installed by default. You can install more with `npx shadcn-ui add <component-name>`.
