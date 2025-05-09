@@ -14,7 +14,8 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox or local develop
 - [x] Custom easing curves
 - [x] Hooks: ([usehooks-ts](https://usehooks-ts.com/) and [uihooks](https://usehooks.com/))
 - [x] [clsx](https://www.npmjs.com/package/clsx) for classnames
-- [ ] [shadcn](https://ui.shadcn.com/) components
+- [x] [shadcn](https://ui.shadcn.com/) components
+- [ ] [reactsounds](https://www.reactsounds.com/)
 
 ## Usage
 
