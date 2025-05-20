@@ -19,6 +19,7 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox or local develop
 
 ## Usage
 
+- Duplicate the repo, remove .git and reinitialize, install with `pnpm`
 - [Open in Codesandbox](https://codesandbox.io/p/devbox/github/toddmoy/protobox)
 - [Use repo template](https://github.com/new?template_name=protobox&template_owner=toddmoy)
 
