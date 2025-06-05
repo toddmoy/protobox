@@ -1,6 +1,6 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: true
 ---
 
@@ -12,7 +12,7 @@ alwaysApply: true
 - Add <Tooltip />` for all buttons without a visible label.
 - Use `clsx` for style variants or to apply css classes conditionally
 - Use `framer-motion` to animate elements.
-- Add new components into `/src/components`.
+- Use `faker` to generate fake content when I ask for it.
+- Add new components into `/src/components`. DO NOT add them into the `ui` or `whimsical` directories.
 - Add new images, fonts, videos, or other  assets into `/src/assets`.
-- For placeholder and fake data, generate it randomly or use `faker`
-- Prefer `shadcn.com` components for UI elements. Many are installed by default. You can install more with `npx shadcn-ui add <component-name>`.
+- Prefer `shadcn.com` components for UI elements. Many are installed by default and are found in `/src/components/ui`. You can install more with `npx shadcn-ui add <component-name>`.
