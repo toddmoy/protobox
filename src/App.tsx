@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" Component={Welcome} />
+        <Route path="/" Component={Welcome} />
         <Route path="/new-page" Component={NewPage} />
       </Routes>
     </BrowserRouter>
