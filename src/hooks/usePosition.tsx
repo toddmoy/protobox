@@ -1,85 +1,157 @@
-import { useLayoutEffect, useState, useRef, RefObject } from 'react'
+import { useLayoutEffect, useState, useRef, useCallback, RefObject, CSSProperties } from 'react'
 
+/**
+ * Position options for the positioned element relative to the target
+ */
+type Position = 'top' | 'bottom' | 'left' | 'right'
+
+/**
+ * Alignment options for the positioned element
+ */
+type Alignment = 'start' | 'center' | 'end'
+
+/**
+ * Configuration options for usePosition hook
+ */
+interface UsePositionOptions {
+  /**
+   * Where to position the element relative to the target
+   * @default 'bottom'
+   */
+  position?: Position
+  /**
+   * How to align the element along the perpendicular axis
+   * @default 'start'
+   */
+  alignment?: Alignment
+  /**
+   * Offset in pixels from the target element
+   * @default 0
+   */
+  offset?: number
+}
+
+/**
+ * Return value from usePosition hook
+ */
+interface UsePositionReturn {
+  /**
+   * Ref to attach to the positioned element
+   */
+  ref: RefObject<HTMLElement>
+  /**
+   * Style object containing position coordinates
+   */
+  style: CSSProperties
+}
+
+/**
+ * Custom hook for positioning an element relative to a target element.
+ * Automatically updates position on window resize and scroll.
+ *
+ * @example
+ * ```tsx
+ * const targetRef = useRef<HTMLButtonElement>(null)
+ * const { ref, style } = usePosition(targetRef, {
+ *   position: 'bottom',
+ *   alignment: 'center',
+ *   offset: 8
+ * })
+ *
+ * return (
+ *   <>
+ *     <button ref={targetRef}>Target</button>
+ *     <div ref={ref} style={style}>Positioned content</div>
+ *   </>
+ * )
+ * ```
+ */
 function usePosition(
   targetRef: RefObject<HTMLElement>,
-  { position = 'bottom', alignment = 'start' }
-) {
-  const [style, setStyle] = useState({})
-  const positionedElementRef = useRef(null)
+  options: UsePositionOptions = {}
+): UsePositionReturn {
+  const { position = 'bottom', alignment = 'start', offset = 0 } = options
 
-  useLayoutEffect(() => {
-    function updatePosition() {
-      if (!targetRef.current || !positionedElementRef.current) return
+  const [style, setStyle] = useState<CSSProperties>({
+    position: 'absolute',
+    top: 0,
+    left: 0,
+  })
 
-      const targetRect = targetRef.current.getBoundingClientRect()
-      //@ts-ignore - quit whining
-      const elementRect = positionedElementRef.current.getBoundingClientRect()
+  const positionedElementRef = useRef<HTMLElement>(null)
 
-      let top = 0
-      let left = 0
+  const updatePosition = useCallback(() => {
+    if (!targetRef.current || !positionedElementRef.current) return
 
-      // Calculate position based on `position` prop
-      switch (position) {
-        case 'top':
-          top = targetRect.top - elementRect.height
-          break
-        case 'bottom':
-          top = targetRect.bottom
-          break
-        case 'left':
-          left = targetRect.left - elementRect.width
-          break
-        case 'right':
-          left = targetRect.right
-          break
-        default:
-          break
-      }
+    const targetRect = targetRef.current.getBoundingClientRect()
+    const elementRect = positionedElementRef.current.getBoundingClientRect()
 
-      console.log('top: ' + top)
+    let top = 0
+    let left = 0
 
-      // Calculate alignment based on `alignment` prop
-      switch (alignment) {
-        case 'center':
-          if (position === 'top' || position === 'bottom') {
-            left = targetRect.left + (targetRect.width - elementRect.width) / 2
-          } else {
-            top = targetRect.top + (targetRect.height - elementRect.height) / 2
-          }
-          break
-        case 'end':
-          if (position === 'top' || position === 'bottom') {
-            left = targetRect.right - elementRect.width
-          } else {
-            top = targetRect.bottom - elementRect.height
-          }
-          break
-        default:
-          if (position === 'top' || position === 'bottom') {
-            left = targetRect.left
-          } else {
-            top = targetRect.top
-          }
-          break
-      }
-
-      setStyle({
-        position: 'absolute',
-        top: `${top}px`,
-        left: `${left}px`,
-      })
+    // Calculate position based on position prop
+    switch (position) {
+      case 'top':
+        top = targetRect.top - elementRect.height - offset
+        break
+      case 'bottom':
+        top = targetRect.bottom + offset
+        break
+      case 'left':
+        left = targetRect.left - elementRect.width - offset
+        break
+      case 'right':
+        left = targetRect.right + offset
+        break
     }
 
+    // Calculate alignment based on alignment prop
+    switch (alignment) {
+      case 'center':
+        if (position === 'top' || position === 'bottom') {
+          left = targetRect.left + (targetRect.width - elementRect.width) / 2
+        } else {
+          top = targetRect.top + (targetRect.height - elementRect.height) / 2
+        }
+        break
+      case 'end':
+        if (position === 'top' || position === 'bottom') {
+          left = targetRect.right - elementRect.width
+        } else {
+          top = targetRect.bottom - elementRect.height
+        }
+        break
+      case 'start':
+      default:
+        if (position === 'top' || position === 'bottom') {
+          left = targetRect.left
+        } else {
+          top = targetRect.top
+        }
+        break
+    }
+
+    setStyle({
+      position: 'absolute',
+      top: `${top}px`,
+      left: `${left}px`,
+    })
+  }, [targetRef, position, alignment, offset])
+
+  useLayoutEffect(() => {
     updatePosition()
 
-    window.addEventListener('resize', updatePosition)
-    window.addEventListener('scroll', updatePosition)
+    // Use passive listeners for better scroll performance
+    const options: AddEventListenerOptions = { passive: true }
+
+    window.addEventListener('resize', updatePosition, options)
+    window.addEventListener('scroll', updatePosition, options)
 
     return () => {
       window.removeEventListener('resize', updatePosition)
       window.removeEventListener('scroll', updatePosition)
     }
-  }, [targetRef, position, alignment])
+  }, [updatePosition])
 
   return { ref: positionedElementRef, style }
 }
