@@ -73,9 +73,10 @@ function usePosition(
   const { position = 'bottom', alignment = 'start', offset = 0 } = options
 
   const [style, setStyle] = useState<CSSProperties>({
-    position: 'absolute',
+    position: 'fixed',
     top: 0,
     left: 0,
+    zIndex: 9999,
   })
 
   const positionedElementRef = useRef<HTMLElement>(null)
@@ -90,6 +91,7 @@ function usePosition(
     let left = 0
 
     // Calculate position based on position prop
+    // Using fixed positioning, so coordinates are relative to viewport
     switch (position) {
       case 'top':
         top = targetRect.top - elementRect.height - offset
@@ -132,9 +134,10 @@ function usePosition(
     }
 
     setStyle({
-      position: 'absolute',
+      position: 'fixed',
       top: `${top}px`,
       left: `${left}px`,
+      zIndex: 9999,
     })
   }, [targetRef, position, alignment, offset])
 
