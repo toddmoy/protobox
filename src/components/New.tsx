@@ -1,3 +1,3 @@
-export default () => {
+export default function New() {
   return <div>Hello</div>
 }

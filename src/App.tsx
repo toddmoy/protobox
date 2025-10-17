@@ -3,7 +3,7 @@ import Welcome from './components/Welcome'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import NewPage from './pages/newPage'
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -13,5 +13,3 @@ function App() {
     </BrowserRouter>
   )
 }
-
-export default App
