@@ -18,7 +18,8 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox or local develop
 - [x] [shadcn/ui](https://ui.shadcn.com/) components (34 pre-installed)
 
 ## Usage
-
+There's a few ways to use it: 
+- **Easiest**: `npm create protobox@latest <app name>` ([more here](https://www.npmjs.com/package/create-protobox))
 - Duplicate the repo, remove .git and reinitialize, install with `pnpm`
 - [Open in Codesandbox](https://codesandbox.io/p/devbox/github/toddmoy/protobox)
 - [Use repo template](https://github.com/new?template_name=protobox&template_owner=toddmoy)
