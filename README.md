@@ -28,7 +28,8 @@ $ pnpm i
 $ pnpm run dev
 ```
 
-Alternatively, you can start a new project in the following ways:
+Other ways:
+ 
 - Duplicate the repo, remove .git and reinitialize, install with `pnpm`
 - [Open in Codesandbox](https://codesandbox.io/p/devbox/github/toddmoy/protobox)
 - [Use repo template](https://github.com/new?template_name=protobox&template_owner=toddmoy)
