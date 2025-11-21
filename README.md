@@ -19,16 +19,20 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox or local develop
 
 ## Usage
 
+To initialize a new project, run
+
+```bash
+$ npm create protobox@latest <project-name>
+$ cd <project-name>
+$ pnpm i
+$ pnpm run dev
+```
+
+Alternatively, you can start a new project in the following ways:
 - Duplicate the repo, remove .git and reinitialize, install with `pnpm`
 - [Open in Codesandbox](https://codesandbox.io/p/devbox/github/toddmoy/protobox)
 - [Use repo template](https://github.com/new?template_name=protobox&template_owner=toddmoy)
 
-## Quick Start
-
-```bash
-pnpm install
-pnpm dev
-```
 
 Visit `http://localhost:5173` to see the welcome page with examples.
 
@@ -65,8 +69,8 @@ See [src/components/README.md](src/components/README.md) for detailed specs:
 ```tsx
 import { useHotkeys } from 'react-hotkeys-hook'
 
-useHotkeys('ctrl+/', () => { 
-  alert("Shortcut pressed!") 
+useHotkeys('ctrl+/', () => {
+  alert("Shortcut pressed!")
 })
 ```
 
@@ -189,6 +193,16 @@ The `src/index.css` includes a helpful utility:
   {/* Flex container with items centered */}
 </div>
 ```
+
+## Claude Code Skills
+
+This project includes specialized Claude Code skills for rapid prototyping:
+
+- **animate** - UI animations and microinteractions using native CSS and Framer Motion
+- **responsive** - Responsive layouts with Tailwind breakpoints, CSS Grid, and Flexbox
+- **modernist** - Swiss Design, Bauhaus, Minimalist, and De Stijl-inspired interfaces
+
+To use a skill in Claude Code, invoke it with `/animate`, `/responsive`, or `/modernist` when working on your project.
 
 ## Example Components
 

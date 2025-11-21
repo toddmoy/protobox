@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Read(//private/tmp/**)",
+      "Bash(PROTOBOX_TEMPLATE=/Users/toddmoy/Code/toddmoy/protobox create-protobox:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
