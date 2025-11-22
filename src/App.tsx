@@ -1,7 +1,7 @@
 import './App.css'
 import Welcome from './components/Welcome'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import NewPage from './pages/NewPage'
+import NewPage from './pages/newPage'
 import PositionTest from './pages/PositionTest'
 import TypewriterDemo from './pages/TypewriterDemo'
 
