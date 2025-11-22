@@ -166,6 +166,35 @@ import { NewPage } from './pages/NewPage'
 </Routes>
 ```
 
+### Create a typewriter effect
+
+Use the `useTypewriter` hook to create typing animations:
+
+```tsx
+import useTypewriter from "@/hooks/useTypewriter"
+
+const { text } = useTypewriter('Hello, World!', {
+  speed: 100,      // ms per character
+  delay: 500,      // ms before starting
+  cursor: true,    // show blinking cursor
+  loop: false,     // repeat animation
+})
+
+<p>{text}</p>
+```
+
+**With manual control:**
+
+```tsx
+const { text, isComplete, start, pause, reset } = useTypewriter('Type on demand', {
+  autoStart: false,
+  onComplete: () => console.log('Done!')
+})
+
+<p>{text}</p>
+<button onClick={start}>Start</button>
+```
+
 ### Position something relative to another
 
 Use the `usePosition` hook for tooltips, dropdowns, etc. Make sure the positioned element has a predictable width.
