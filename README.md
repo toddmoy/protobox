@@ -16,6 +16,7 @@ An opinionated prototyping boilerplate for Codesandbox's Devbox or local develop
 - [x] Hooks: [usehooks-ts](https://usehooks-ts.com/) and [@uidotdev/usehooks](https://usehooks.com/)
 - [x] [clsx](https://www.npmjs.com/package/clsx) for classnames
 - [x] [shadcn/ui](https://ui.shadcn.com/) components (34 pre-installed)
+- [x] [Leva](https://github.com/pmndrs/leva) GUI controls for prototyping
 
 ## Usage
 
@@ -195,6 +196,27 @@ const { text, isComplete, start, pause, reset } = useTypewriter('Type on demand'
 <button onClick={start}>Start</button>
 ```
 
+### Add interactive controls with Leva
+
+Leva provides a powerful GUI control panel for prototyping and debugging:
+
+```tsx
+import { useControls } from 'leva'
+
+const { width, height, color, enabled } = useControls({
+  width: { value: 200, min: 100, max: 800 },
+  height: { value: 200, min: 100, max: 800 },
+  color: '#4c9aff',
+  enabled: true
+})
+
+<div style={{ width, height, backgroundColor: color }}>
+  {enabled && "Interactive content"}
+</div>
+```
+
+**See the demo:** Navigate to `/leva-demo` to see all available control types.
+
 ### Position something relative to another
 
 Use the `usePosition` hook for tooltips, dropdowns, etc. Make sure the positioned element has a predictable width.
@@ -231,8 +253,9 @@ This project includes specialized Claude Code skills for rapid prototyping:
 - **animate** - UI animations and microinteractions using native CSS and Framer Motion
 - **responsive** - Responsive layouts with Tailwind breakpoints, CSS Grid, and Flexbox
 - **modernist** - Swiss Design, Bauhaus, Minimalist, and De Stijl-inspired interfaces
+- **control-panel** - Interactive GUI controls with Leva for prototyping and debugging
 
-To use a skill in Claude Code, invoke it with `/animate`, `/responsive`, or `/modernist` when working on your project.
+To use a skill in Claude Code, invoke it when working on your project (skills are automatically available).
 
 ## Example Components
 

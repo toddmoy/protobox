@@ -47,6 +47,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.17",
+    "leva": "^0.10.1",
     "lucide-react": "^0.460.0",
     "prettier": "^3.5.3",
     "react": "^18.3.1",

@@ -5,7 +5,10 @@
       "Read(//private/tmp/**)",
       "Bash(PROTOBOX_TEMPLATE=/Users/toddmoy/Code/toddmoy/protobox create-protobox:*)",
       "Bash(pnpm add:*)",
-      "Bash(pnpm dev)"
+      "Bash(pnpm dev)",
+      "WebFetch(domain:leva.pmnd.rs)",
+      "WebFetch(domain:github.com)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []
