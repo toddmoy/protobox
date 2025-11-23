@@ -27,8 +27,7 @@ src/
 │   ├── PillComponent.tsx    # React component for rendering pills
 │   ├── MentionMenu.tsx      # Floating dropdown menu for pill selection
 │   └── Editor.tsx           # Main editor wrapper with menu state management
-└── pages/
-    └── EditorPage.tsx       # Demo page with example content
+└── pages/                   # Front-end views accessible by routes
 ```
 
 ### Custom Pill Extension
