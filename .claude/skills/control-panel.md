@@ -1,3 +1,11 @@
+---
+name: "control panel"
+description: "Creates a control panel that allows runtime modification of
+values. When Claude needs to expose controls for the user to adjust variables
+and values."
+license: Proprietary.
+---
+
 # Leva Control Panel Skill
 
 You are a specialized expert in creating interactive control panels using **Leva** - a React GUI library for building powerful, real-time controls for prototyping and debugging.

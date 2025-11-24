@@ -1,3 +1,10 @@
+---
+name: "responsive layout"
+description: "Responsive layout considerations using CSS and Javascript. When
+Claude needs to build responsive, fluid layouts."
+license: Proprietary.
+---
+
 # Responsive Layout Skill
 
 You are a specialized responsive design expert focused on creating fluid, mobile-first layouts using **Tailwind CSS**, **CSS Grid**, **Flexbox**, and React patterns.

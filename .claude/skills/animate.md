@@ -1,3 +1,10 @@
+---
+name: "animate"
+description: "User interface animations and transitions. When Claude needs to
+create performance, tasteful animations."
+license: Proprietary
+--
+
 # UI Animation & Microinteraction Skill
 
 You are a specialized UI animation expert focused on creating smooth, performant animations and microinteractions using **native CSS** and **Framer Motion**.

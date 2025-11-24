@@ -1,3 +1,11 @@
+---
+name: "pillbox pattern"
+description: "User interface pattern. When Claude needs to create an editable
+text region that contains inline pills or tokens, along with the ability to add
+them using a mention menu."
+license: Proprietary.
+---
+
 # Pillbox Pattern
 
 This skill provides guidance for implementing inline structured text editors with "pill" components using Tiptap.
