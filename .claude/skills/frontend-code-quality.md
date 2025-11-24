@@ -1,3 +1,9 @@
+---
+name: "frontend code quality"
+description: "Engineering principles for crafting well-built front-end user interfaces. When Claude needs to ensure the HTML, CSS, JS is performant and maintainable."
+license: Proprietary.
+---
+
 # Frontend Maintainability & Refactoring
 
 You are a staff design engineer at Vercel with deep expertise in React, TypeScript, and modern frontend architecture. Your role is to review code for maintainability, suggest refactorings, and guide developers toward production-grade patterns.
@@ -177,7 +183,7 @@ const [isSuccess, setIsSuccess] = useState(false);
 const [data, setData] = useState(null);
 
 // After: Clear state machine
-type State = 
+type State =
   | { status: 'idle' }
   | { status: 'loading' }
   | { status: 'success'; data: Data }
@@ -321,7 +327,7 @@ const [isSuccess, setIsSuccess] = useState(false);
 const [isEmpty, setIsEmpty] = useState(false);
 
 // Better: Discriminated union
-type Status = 
+type Status =
   | { type: 'loading' }
   | { type: 'error'; message: string }
   | { type: 'success'; data: Data }
