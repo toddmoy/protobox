@@ -30,7 +30,7 @@ $ pnpm run dev
 ```
 
 Other ways:
- 
+
 - Duplicate the repo, remove .git and reinitialize, install with `pnpm`
 - [Open in Codesandbox](https://codesandbox.io/p/devbox/github/toddmoy/protobox)
 - [Use repo template](https://github.com/new?template_name=protobox&template_owner=toddmoy)
@@ -254,6 +254,8 @@ This project includes specialized Claude Code skills for rapid prototyping:
 - **responsive** - Responsive layouts with Tailwind breakpoints, CSS Grid, and Flexbox
 - **modernist** - Swiss Design, Bauhaus, Minimalist, and De Stijl-inspired interfaces
 - **control-panel** - Interactive GUI controls with Leva for prototyping and debugging
+- **documentation** - Record high-level architecture and concepts in README.
+Display in-app using a dialog.
 
 To use a skill in Claude Code, invoke it when working on your project (skills are automatically available).
 
