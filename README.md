@@ -246,6 +246,27 @@ The `src/index.css` includes a helpful utility:
 </div>
 ```
 
+### Share your dev server on the internet
+
+Instantly share your local development server with a public URL:
+
+```bash
+pnpm run dev:share
+```
+
+This will:
+1. Start the Vite dev server
+2. Create a secure tunnel via localhost.run
+3. Display a public HTTPS URL (e.g., `https://abc123.lhr.life`)
+4. Show a QR code for mobile testing
+
+Perfect for:
+- Testing on mobile devices
+- Sharing prototypes with clients/teammates
+- Quick user testing without deployment
+
+No authentication required. The URL changes with each run (permanent URLs available with a free localhost.run account).
+
 ## Claude Code Skills
 
 This project includes specialized Claude Code skills for rapid prototyping:
@@ -267,6 +288,7 @@ To use a skill in Claude Code, invoke it when working on your project (skills ar
 ## Development Commands
 
 - `pnpm dev` - Start Vite development server
+- `pnpm dev:share` - Start dev server with public internet URL (via localhost.run)
 - `pnpm build` - Build for production
 - `pnpm lint` - Run ESLint
 - `pnpm format` - Format code with Prettier
