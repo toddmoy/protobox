@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:share": "vite --host & sleep 2 && ssh -o StrictHostKeyChecking=no -R 80:localhost:5173 nokey@localhost.run",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx,ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",

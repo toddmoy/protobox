@@ -8,7 +8,8 @@
       "Bash(pnpm dev)",
       "WebFetch(domain:leva.pmnd.rs)",
       "WebFetch(domain:github.com)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(pnpm run dev:share:*)"
     ],
     "deny": [],
     "ask": []

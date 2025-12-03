@@ -10,4 +10,10 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  server: {
+    allowedHosts: [
+      '.lhr.life',
+      '.localhost.run',
+    ],
+  },
 })
