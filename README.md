@@ -275,8 +275,11 @@ This project includes specialized Claude Code skills for rapid prototyping:
 - **responsive** - Responsive layouts with Tailwind breakpoints, CSS Grid, and Flexbox
 - **modernist** - Swiss Design, Bauhaus, Minimalist, and De Stijl-inspired interfaces
 - **control-panel** - Interactive GUI controls with Leva for prototyping and debugging
-- **documentation** - Record high-level architecture and concepts in README.
-Display in-app using a dialog.
+- **documentation** - Record high-level architecture and concepts in README. Display in-app using a dialog.
+- **pillbox-pattern** - Editable text region with inline pills/tokens and mention menu functionality
+- **frontend-code-quality** - Engineering principles for performant and maintainable HTML, CSS, and JS
+- **figma-implementation** - Pixel-perfect implementation of Figma designs with autolayout and variables
+- **state-patterns** - Practical state management patterns for React prototypes without heavyweight libraries
 
 To use a skill in Claude Code, invoke it when working on your project (skills are automatically available).
 

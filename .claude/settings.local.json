@@ -9,7 +9,10 @@
       "WebFetch(domain:leva.pmnd.rs)",
       "WebFetch(domain:github.com)",
       "Bash(cat:*)",
-      "Bash(pnpm run dev:share:*)"
+      "Bash(pnpm run dev:share:*)",
+      "Bash(for file in /Users/toddmoy/Code/toddmoy/protobox/.claude/skills/*.md)",
+      "Bash(head:*)",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []
