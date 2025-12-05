@@ -27,8 +27,12 @@ This is a React prototyping boilerplate built with:
   - `MCP.tsx` - Example card component demonstrating dark mode and composition
   - `README.md` - Component development guidelines (heights, props, composition patterns)
 - `src/pages/` - Page components for routing
+  - `LevaDemo.tsx` - Interactive Leva controls demonstration
+  - `PositionTest.tsx` - usePosition hook test page
+  - `TypewriterDemo.tsx` - useTypewriter hook demonstration
 - `src/hooks/` - Custom React hooks
   - `usePosition.tsx` - Hook for positioning elements relative to another (tooltips, dropdowns)
+  - `useTypewriter.tsx` - Hook for typewriter text animation effects
   - `use-toast.ts` - Toast notification hook (shadcn)
 - `src/lib/utils.ts` - Utility functions (cn() for className merging)
 - `src/styles/easing.css` - Custom easing curves (--ease-out-expo, etc.)
@@ -45,7 +49,7 @@ This is a React prototyping boilerplate built with:
 - Icons composed via `icon`, `leadingIcon`, or `trailingIcon` props
 - Use composition over prop explosion
 
-**34 shadcn/ui components available:**
+**30 shadcn/ui components available:**
 accordion, alert, alert-dialog, aspect-ratio, badge, button, card, checkbox, drawer, dropdown-menu, hover-card, input, label, popover, progress, radio-group, resizable, scroll-area, select, separator, sheet, switch, table, tabs, textarea, toast, toaster, toggle, toggle-group, tooltip
 
 **CSS Modules supported:**
@@ -128,6 +132,22 @@ const { ref, style } = usePosition(targetRef, {
 
 <button ref={targetRef}>Target</button>
 <div ref={ref} style={style}>Positioned content</div>
+```
+
+**useTypewriter** (`src/hooks/useTypewriter.tsx`):
+Create typewriter text animation effects:
+```tsx
+import useTypewriter from '@/hooks/useTypewriter'
+
+const { text, isComplete, start, pause, reset } = useTypewriter('Hello, World!', {
+  speed: 100,      // ms per character
+  delay: 500,      // ms before starting
+  cursor: true,    // show blinking cursor
+  loop: false,     // repeat animation
+  autoStart: true, // start immediately
+})
+
+<p>{text}</p>
 ```
 
 **useHotkeys** (from react-hotkeys-hook):
