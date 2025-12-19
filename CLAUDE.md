@@ -24,6 +24,8 @@ Protobox is a React/Vite prototyping boilerplate with:
 - `src/hooks/` - Custom React hooks (usePosition, useTypewriter)
 - `src/pages/` - Page components for routing
 - `src/lib/utils.ts` - `cn()` utility for className merging
+- `src/data/` - Static data for prototyping
+- `src/api/` - Mock API routes
 
 ## Path Alias
 
