@@ -3,7 +3,7 @@ name: "pillbox pattern"
 description: "User interface pattern. When Claude needs to create an editable
 text region that contains inline pills or tokens, along with the ability to add
 them using a mention menu."
-license: Proprietary.
+license: Proprietary
 ---
 
 # Pillbox Pattern

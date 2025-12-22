@@ -1,9 +1,8 @@
 ---
 name: "animate"
-description: "User interface animations and transitions. When Claude needs to
-create performance, tasteful animations."
+description: "User interface animations and transitions. When Claude needs to create performant, tasteful animations."
 license: Proprietary
---
+---
 
 # UI Animation & Microinteraction Skill
 

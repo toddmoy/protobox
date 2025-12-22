@@ -1,7 +1,7 @@
 ---
 name: "state patterns"
 description: "A practical skill for managing state in React prototypes without heavyweight libraries."
-license: Proprietary.
+license: Proprietary
 ---
 
 # State Patterns for Prototypes

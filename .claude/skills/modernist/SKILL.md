@@ -1,8 +1,7 @@
 ---
 name: "modernist"
-description: "Design aesthetics, typography, and layout. When Claude needs to
-produce designs that are inspired by Bauhaus, Minimalism, and Swiss movements."
-license: Proprietary.
+description: "Design aesthetics, typography, and layout. When Claude needs to produce designs that are inspired by Bauhaus, Minimalism, and Swiss movements."
+license: Proprietary
 ---
 
 # Modernist Design Skill

@@ -1,8 +1,7 @@
 ---
 name: "responsive layout"
-description: "Responsive layout considerations using CSS and Javascript. When
-Claude needs to build responsive, fluid layouts."
-license: Proprietary.
+description: "Responsive layout considerations using CSS and Javascript. When Claude needs to build responsive, fluid layouts."
+license: Proprietary
 ---
 
 # Responsive Layout Skill

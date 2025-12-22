@@ -1,3 +1,9 @@
+---
+name: "component-demo"
+description: "Create demonstration pages for components and hooks."
+license: Proprietary
+---
+
 # Component Demo Skill
 
 This skill guides the creation and maintenance of components and their demo pages in the Protobox component showcase.
