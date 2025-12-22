@@ -1,5 +1,5 @@
 ---
-name: "control-panel"
+name: "control panel"
 description: "Creates a control panel that allows runtime modification of values. When Claude needs to expose controls for the user to adjust variables and values."
 license: Proprietary
 ---

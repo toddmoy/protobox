@@ -1,5 +1,5 @@
 ---
-name: "component-demo"
+name: "component demo"
 description: "Create demonstration pages for components and hooks."
 license: Proprietary
 ---
