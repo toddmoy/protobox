@@ -1,0 +1,237 @@
+[{
+  "id": 1,
+  "title": "Lead generation",
+  "steps": [{
+    "id": 1,
+    "parentId": null,
+    "type": "trigger",
+    "title": "New form submission",
+    "app": "Typeform"
+  }, {
+    "id": 2,
+    "parentId": 1,
+    "type": "action",
+    "title": "Enrich contact data",
+    "app": "Clearbit"
+  }, {
+    "id": 3,
+    "parentId": 2,
+    "type": "action",
+    "title": "Route leads by category",
+    "app": "Paths by Zapier"
+  }, {
+    "id": 4,
+    "parentId": 3,
+    "type": "action",
+    "title": "Send message to sales channel",
+    "app": "Slack"
+  }]
+}, {
+  "id": 2,
+  "title": "Customer support ticket routing",
+  "steps": [{
+    "id": 1,
+    "parentId": null,
+    "type": "trigger",
+    "title": "New ticket created",
+    "app": "Zendesk"
+  }, {
+    "id": 2,
+    "parentId": 1,
+    "type": "action",
+    "title": "Analyze ticket sentiment",
+    "app": "MonkeyLearn"
+  }, {
+    "id": 3,
+    "parentId": 2,
+    "type": "action",
+    "title": "Filter by priority level",
+    "app": "Filter by Zapier"
+  }, {
+    "id": 4,
+    "parentId": 3,
+    "type": "action",
+    "title": "Assign to team member",
+    "app": "Zendesk"
+  }, {
+    "id": 5,
+    "parentId": 4,
+    "type": "action",
+    "title": "Notify support team",
+    "app": "Slack"
+  }]
+}, {
+  "id": 3,
+  "title": "E-commerce order fulfillment",
+  "steps": [{
+    "id": 1,
+    "parentId": null,
+    "type": "trigger",
+    "title": "New paid order",
+    "app": "Shopify"
+  }, {
+    "id": 2,
+    "parentId": 1,
+    "type": "action",
+    "title": "Add customer to spreadsheet",
+    "app": "Google Sheets"
+  }, {
+    "id": 3,
+    "parentId": 2,
+    "type": "action",
+    "title": "Create shipping label",
+    "app": "ShipStation"
+  }, {
+    "id": 4,
+    "parentId": 3,
+    "type": "action",
+    "title": "Send confirmation email",
+    "app": "Gmail"
+  }]
+}, {
+  "id": 4,
+  "title": "Team task management",
+  "steps": [{
+    "id": 1,
+    "parentId": null,
+    "type": "trigger",
+    "title": "New Slack message in channel",
+    "app": "Slack"
+  }, {
+    "id": 2,
+    "parentId": 1,
+    "type": "action",
+    "title": "Filter messages with emoji",
+    "app": "Filter by Zapier"
+  }, {
+    "id": 3,
+    "parentId": 2,
+    "type": "action",
+    "title": "Create task card",
+    "app": "Trello"
+  }, {
+    "id": 4,
+    "parentId": 3,
+    "type": "action",
+    "title": "Schedule calendar reminder",
+    "app": "Google Calendar"
+  }]
+}, {
+  "id": 5,
+  "title": "Content publishing workflow",
+  "steps": [{
+    "id": 1,
+    "parentId": null,
+    "type": "trigger",
+    "title": "New document added to folder",
+    "app": "Google Drive"
+  }, {
+    "id": 2,
+    "parentId": 1,
+    "type": "action",
+    "title": "Convert to HTML",
+    "app": "CloudConvert"
+  }, {
+    "id": 3,
+    "parentId": 2,
+    "type": "action",
+    "title": "Create blog post draft",
+    "app": "WordPress"
+  }, {
+    "id": 4,
+    "parentId": 3,
+    "type": "action",
+    "title": "Schedule social media post",
+    "app": "Buffer"
+  }, {
+    "id": 5,
+    "parentId": 4,
+    "type": "action",
+    "title": "Notify content team",
+    "app": "Slack"
+  }]
+}, {
+  "id": 6,
+  "title": "Intelligent email response",
+  "steps": [{
+    "id": 1,
+    "parentId": null,
+    "type": "trigger",
+    "title": "New email received",
+    "app": "Gmail"
+  }, {
+    "id": 2,
+    "parentId": 1,
+    "type": "action",
+    "title": "Classify email intent",
+    "app": "AI by Zapier"
+  }, {
+    "id": 3,
+    "parentId": 2,
+    "type": "action",
+    "title": "Generate personalized response",
+    "app": "AI by Zapier"
+  }, {
+    "id": 4,
+    "parentId": 3,
+    "type": "action",
+    "title": "Send draft reply",
+    "app": "Gmail"
+  }]
+}, {
+  "id": 7,
+  "title": "Autonomous research workflow",
+  "steps": [{
+    "id": 1,
+    "parentId": null,
+    "type": "trigger",
+    "title": "New research request submitted",
+    "app": "Airtable"
+  }, {
+    "id": 2,
+    "parentId": 1,
+    "type": "action",
+    "title": "Process with AI Agent",
+    "app": "Agents by Zapier"
+  }, {
+    "id": 3,
+    "parentId": 2,
+    "type": "action",
+    "title": "Update research database",
+    "app": "Airtable"
+  }, {
+    "id": 4,
+    "parentId": 3,
+    "type": "action",
+    "title": "Send completion notification",
+    "app": "Slack"
+  }]
+}, {
+  "id": 8,
+  "title": "Custom API integration with data transformation",
+  "steps": [{
+    "id": 1,
+    "parentId": null,
+    "type": "trigger",
+    "title": "New webhook received",
+    "app": "Webhooks by Zapier"
+  }, {
+    "id": 2,
+    "parentId": 1,
+    "type": "action",
+    "title": "Transform and validate payload",
+    "app": "Code by Zapier"
+  }, {
+    "id": 3,
+    "parentId": 2,
+    "type": "action",
+    "title": "Make custom API call",
+    "app": "Code by Zapier"
+  }, {
+    "id": 4,
+    "parentId": 3,
+    "type": "action",
+    "title": "Parse response and update records",
+    "app": "Airtable"
+  }]
+}]
