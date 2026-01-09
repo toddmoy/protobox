@@ -27,7 +27,8 @@ Use this skill when:
 Options to present:
 1. **Yes, create demo page** - Create both the component and a showcase demo
 2. **Yes, standalone demo** - Create component and a standalone demo page at `/[name]-demo`
-3. **No demo needed** - Just create the component/hook
+3. **Yes, playground** - Create an interactive playground with props controls (Storybook-like)
+4. **No demo needed** - Just create the component/hook
 
 ### Phase 2: Component Creation
 
@@ -102,14 +103,143 @@ Follow component best practices from `src/components/README.md`:
    <Route path="/[name]-demo" Component={[Name]Demo} />
    ```
 
+#### C. For Component Playground (`/components/[name]-playground`)
+
+Playgrounds provide an interactive, Storybook-like environment with a canvas and props controls.
+
+1. **Analyze Component Props:**
+   - Read the target component's source file
+   - Parse the TypeScript Props interface
+   - Categorize props as controllable or complex
+
+2. **Guide Prop Selection - Present to User:**
+   > "I analyzed [ComponentName] and found these props:
+   >
+   > **Recommended for playground (controllable):**
+   > - `variant`: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'
+   > - `size`: 'default' | 'sm' | 'lg' | 'icon'
+   > - `disabled`: boolean
+   >
+   > **Complex props (not controllable):**
+   > - `onClick`: function
+   > - `asChild`: boolean (affects render behavior)
+   > - `ref`: React ref
+   >
+   > Which props would you like to expose in the playground?"
+
+3. **Create Playground Content** in `src/components/DemoShowcase/[Name]PlaygroundContent.tsx`:
+   ```tsx
+   import PlaygroundCanvas, { PropSchema } from './PlaygroundCanvas'
+   import { Button } from '@/components/ui/button'
+
+   const propSchema: PropSchema = {
+     variant: {
+       type: 'select',
+       options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'],
+       defaultValue: 'default',
+     },
+     size: {
+       type: 'select',
+       options: ['default', 'sm', 'lg', 'icon'],
+       defaultValue: 'default',
+     },
+     disabled: {
+       type: 'boolean',
+       defaultValue: false,
+     },
+     children: {
+       type: 'string',
+       defaultValue: 'Button',
+     },
+   }
+
+   export default function ButtonPlaygroundContent() {
+     return (
+       <PlaygroundCanvas
+         componentName="Button"
+         propSchema={propSchema}
+         defaultProps={{ children: 'Click Me' }}
+       >
+         {(props) => <Button {...props}>{props.children as string}</Button>}
+       </PlaygroundCanvas>
+     )
+   }
+   ```
+
+4. **Register in Demo Registry** (`src/components/DemoShowcase/demoRegistry.tsx`):
+   ```tsx
+   // Add lazy import
+   const [Name]PlaygroundContent = lazy(() => import('./[Name]PlaygroundContent'))
+
+   // Add to DEMO_REGISTRY array
+   {
+     id: '[name]-playground',
+     label: '[Name] Playground',
+     section: 'Components',
+     component: [Name]PlaygroundContent,
+     description: 'Interactive playground for [Name]',
+     path: '/components/[name]-playground',
+     type: 'playground',
+   }
+   ```
+
+5. **Add Route** in `src/App.tsx`:
+   ```tsx
+   const [Name]PlaygroundContent = lazy(() => import('./components/DemoShowcase/[Name]PlaygroundContent'))
+
+   <Route
+     path="[name]-playground"
+     element={
+       <Suspense fallback={<div>Loading...</div>}>
+         <[Name]PlaygroundContent />
+       </Suspense>
+     }
+   />
+   ```
+
+### Prop Type Mapping Reference
+
+When analyzing TypeScript props, map types to Leva controls:
+
+| TypeScript Type | PropSchema Type | Notes |
+|-----------------|-----------------|-------|
+| `string` | `'string'` | Text input |
+| `number` | `'number'` | Slider (add min/max/step) |
+| `boolean` | `'boolean'` | Checkbox toggle |
+| `'a' \| 'b' \| 'c'` | `'select'` | Dropdown with options array |
+| `enum Foo { A, B }` | `'select'` | Extract enum values as options |
+| `React.ReactNode` | `'string'` | For simple text children |
+| Color strings | `'color'` | Color picker |
+| `() => void` | Skip | Not controllable |
+| Complex objects | Skip | Not controllable |
+| `React.Ref` | Skip | Not controllable |
+
+### PropSchema Format
+
+```tsx
+import { PropSchema } from '@/components/DemoShowcase/PlaygroundCanvas'
+
+const schema: PropSchema = {
+  propName: {
+    type: 'string' | 'number' | 'boolean' | 'select' | 'color',
+    label?: string,           // Custom label (defaults to propName)
+    defaultValue?: unknown,   // Initial value
+    options?: string[],       // For 'select' type
+    min?: number,             // For 'number' type
+    max?: number,             // For 'number' type
+    step?: number,            // For 'number' type
+  }
+}
+```
+
 ### Phase 4: Component Updates - Check for Existing Demos
 
 **CRITICAL:** When updating an existing component or hook, ALWAYS check if demo pages exist:
 
 1. **Search for Demo Pages:**
-   - Check `src/components/DemoShowcase/` for `[Name]Content.tsx`
+   - Check `src/components/DemoShowcase/` for `[Name]Content.tsx` or `[Name]PlaygroundContent.tsx`
    - Check `src/pages/` for `[Name]Demo.tsx`
-   - Check `demoRegistry.tsx` for entries
+   - Check `demoRegistry.tsx` for entries (including `type: 'playground'`)
 
 2. **If Demo Pages Exist:**
    - Update them to reflect new functionality
@@ -191,6 +321,14 @@ After creating or updating component demos:
 - [ ] Check TypeScript compilation
 - [ ] Verify navigation active state
 
+### Additional Checks for Playgrounds
+
+- [ ] Verify Leva props panel appears (top-right corner)
+- [ ] Test that prop changes update the component in real-time
+- [ ] Verify navigation collapse toggle works
+- [ ] Check canvas centering at different sizes
+- [ ] Test all prop controls (selects, inputs, toggles)
+
 ## Examples
 
 ### Example 1: Creating a New Hook with Demo
@@ -232,12 +370,41 @@ Claude:
 5. Updates code example to include delay option
 ```
 
+### Example 4: Creating a Component Playground
+
+```
+User: "Create a playground for the Badge component"
+
+Claude:
+1. Asks: "Would you like me to create a demo page for this component?"
+2. User selects: "Yes, playground"
+3. Claude reads src/components/ui/badge.tsx
+4. Analyzes BadgeProps interface and presents:
+   "I found these props:
+
+   **Controllable:**
+   - variant: 'default' | 'secondary' | 'destructive' | 'outline'
+   - children: ReactNode (as string)
+
+   **Not controllable:**
+   - className: styling (skip)
+
+   Which props would you like to expose?"
+5. User selects: "variant and children"
+6. Creates:
+   - src/components/DemoShowcase/BadgePlaygroundContent.tsx
+   - Updates demoRegistry.tsx with type: 'playground'
+   - Updates App.tsx with route
+```
+
 ## File Locations Reference
 
 - Component showcase layout: `src/pages/ComponentShowcase.tsx`
 - Demo registry: `src/components/DemoShowcase/demoRegistry.tsx`
 - Navigation: `src/components/DemoShowcase/DemoNavigation.tsx`
 - Demo content: `src/components/DemoShowcase/[Name]Content.tsx`
+- Playground content: `src/components/DemoShowcase/[Name]PlaygroundContent.tsx`
+- Playground canvas: `src/components/DemoShowcase/PlaygroundCanvas.tsx`
 - Standalone demos: `src/pages/[Name]Demo.tsx`
 - Routes: `src/App.tsx`
 

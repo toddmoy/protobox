@@ -12,7 +12,8 @@
       "Bash(pnpm run dev:share:*)",
       "Bash(for file in /Users/toddmoy/Code/toddmoy/protobox/.claude/skills/*.md)",
       "Bash(head:*)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(pnpm build:*)"
     ],
     "deny": [],
     "ask": []

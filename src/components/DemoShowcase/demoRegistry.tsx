@@ -12,6 +12,7 @@ export interface Demo {
   component: ComponentType<any>
   description?: string
   path: string
+  type?: 'showcase' | 'standalone' | 'playground'
 }
 
 export const DEMO_REGISTRY: Demo[] = [
@@ -51,4 +52,12 @@ export const getFirstDemo = (): Demo => {
 
 export const getDemosBySection = (section: 'Hooks' | 'Components'): Demo[] => {
   return DEMO_REGISTRY.filter((demo) => demo.section === section)
+}
+
+export const getDemosByType = (type: Demo['type']): Demo[] => {
+  return DEMO_REGISTRY.filter((demo) => demo.type === type)
+}
+
+export const getPlaygroundDemos = (): Demo[] => {
+  return DEMO_REGISTRY.filter((demo) => demo.type === 'playground')
 }
