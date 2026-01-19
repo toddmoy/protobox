@@ -1,3 +1,9 @@
+---
+name: "logos"
+description: "Returns URLs for logos and brand hex colors for apps in the Zapier ecosystem. When Claude needs to show logos or use brand colors."
+license: Proprietary
+---
+
 # Logos Skill
 
 ## Description
