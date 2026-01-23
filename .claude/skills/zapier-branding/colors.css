@@ -1,0 +1,127 @@
+/**
+ * Zinnia Design System Colors for shadcn/Tailwind
+ *
+ * Replace the color variables in src/index.css with these values.
+ * Preserves --radius and other non-color variables.
+ */
+
+/* ============================================
+   LIGHT MODE (:root)
+   ============================================ */
+
+:root {
+  /* Backgrounds */
+  --background: 40 100% 98%;           /* #fffdf9 - zds-background-weaker */
+  --card: 40 100% 98%;                 /* #fffdf9 - zds-background-weaker */
+  --popover: 40 100% 98%;              /* #fffdf9 - zds-background-weaker */
+
+  /* Foregrounds / Text */
+  --foreground: 7 11% 23%;             /* #413735 - zds-text-default */
+  --card-foreground: 7 11% 23%;        /* #413735 - zds-text-default */
+  --popover-foreground: 7 11% 23%;     /* #413735 - zds-text-default */
+
+  /* Primary (Purple - interactive) */
+  --primary: 244 99% 74%;              /* #847dfe - zds-ui-primary */
+  --primary-foreground: 40 100% 98%;   /* #fffdf9 - zds-text-inverted */
+
+  /* Secondary */
+  --secondary: 48 38% 94%;             /* #f5f3eb - zds-background-stronger */
+  --secondary-foreground: 7 11% 23%;   /* #413735 - zds-text-default */
+
+  /* Muted */
+  --muted: 44 30% 90%;                 /* #ece9df - zds-background-strongest */
+  --muted-foreground: 11 9% 32%;       /* #574e4c - zds-text-weaker */
+
+  /* Accent (Orange - Zapier brand) */
+  --accent: 19 100% 50%;               /* #ff4f00 - zds-ui-brand */
+  --accent-foreground: 40 100% 98%;    /* #fffdf9 - zds-text-inverted */
+
+  /* Destructive */
+  --destructive: 358 90% 64%;          /* #f65258 - zds-status-error */
+  --destructive-foreground: 40 100% 98%; /* #fffdf9 - zds-text-inverted */
+
+  /* Borders */
+  --border: 44 6% 69%;                 /* #b5b2aa - zds-stroke-default */
+  --input: 39 14% 81%;                 /* #d7d3c9 - zds-stroke-weaker */
+  --ring: 244 99% 74%;                 /* #847dfe - zds-ui-primary */
+
+  /* Charts - Zinnia prime colors */
+  --chart-1: 244 99% 74%;              /* #847dfe - purple */
+  --chart-2: 216 97% 61%;              /* #3d85fc - blue */
+  --chart-3: 177 96% 36%;              /* #03bab1 - teal */
+  --chart-4: 122 40% 47%;              /* #4ba84f - green */
+  --chart-5: 19 100% 50%;              /* #ff4f00 - orange */
+
+  /* Preserve non-color variables */
+  --radius: 0.5rem;
+}
+
+/* ============================================
+   DARK MODE (.dark)
+   Inverted warm gray scale, brand colors preserved
+   ============================================ */
+
+.dark {
+  /* Backgrounds - inverted warm grays */
+  --background: 7 11% 12%;             /* warm-10 inverted */
+  --card: 7 11% 12%;
+  --popover: 7 11% 15%;
+
+  /* Foregrounds - light warm gray */
+  --foreground: 40 100% 98%;           /* #fffdf9 */
+  --card-foreground: 40 100% 98%;
+  --popover-foreground: 40 100% 98%;
+
+  /* Primary (Purple - same hue, adjusted for dark) */
+  --primary: 244 99% 74%;              /* #847dfe - zds-ui-primary */
+  --primary-foreground: 7 11% 12%;     /* dark background */
+
+  /* Secondary */
+  --secondary: 7 9% 20%;               /* warm gray darker */
+  --secondary-foreground: 40 100% 98%;
+
+  /* Muted */
+  --muted: 7 9% 20%;
+  --muted-foreground: 44 10% 60%;      /* warm gray lighter */
+
+  /* Accent (Orange - Zapier brand) */
+  --accent: 19 100% 50%;               /* #ff4f00 */
+  --accent-foreground: 7 11% 12%;
+
+  /* Destructive */
+  --destructive: 358 70% 45%;          /* darker red for dark mode */
+  --destructive-foreground: 40 100% 98%;
+
+  /* Borders */
+  --border: 7 6% 25%;                  /* warm gray border */
+  --input: 7 6% 25%;
+  --ring: 244 99% 74%;                 /* purple ring */
+
+  /* Charts - same prime colors, work on dark */
+  --chart-1: 244 85% 70%;              /* purple - slightly adjusted */
+  --chart-2: 216 90% 65%;              /* blue */
+  --chart-3: 177 80% 45%;              /* teal */
+  --chart-4: 122 50% 55%;              /* green */
+  --chart-5: 19 100% 55%;              /* orange */
+}
+
+/* ============================================
+   OPTIONAL: Zinnia semantic tokens
+   Add these for direct access to Zinnia colors
+   ============================================ */
+
+/*
+:root {
+  --zds-ui-primary: 244 99% 74%;
+  --zds-ui-brand: 19 100% 50%;
+  --zds-background-weaker: 40 100% 98%;
+  --zds-background-stronger: 48 38% 94%;
+  --zds-background-strongest: 44 30% 90%;
+  --zds-text-default: 7 11% 23%;
+  --zds-text-weaker: 11 9% 32%;
+  --zds-text-inverted: 40 100% 98%;
+  --zds-stroke-default: 44 6% 69%;
+  --zds-stroke-weaker: 39 14% 81%;
+  --zds-status-error: 358 90% 64%;
+}
+*/
