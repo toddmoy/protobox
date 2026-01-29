@@ -12,6 +12,7 @@ import { lazy, Suspense } from 'react'
 const TypewriterContent = lazy(() => import('./components/DemoShowcase/TypewriterContent'))
 const PositionContent = lazy(() => import('./components/DemoShowcase/PositionContent'))
 const LevaContent = lazy(() => import('./components/DemoShowcase/LevaContent'))
+const ToastContent = lazy(() => import('./components/DemoShowcase/ToastContent'))
 
 export default function App() {
   return (
@@ -43,6 +44,14 @@ export default function App() {
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <LevaContent />
+              </Suspense>
+            }
+          />
+          <Route
+            path="useToast"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <ToastContent />
               </Suspense>
             }
           />

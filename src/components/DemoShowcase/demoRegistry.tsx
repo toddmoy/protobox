@@ -4,6 +4,7 @@ import { ComponentType, lazy } from 'react'
 const TypewriterContent = lazy(() => import('./TypewriterContent'))
 const PositionContent = lazy(() => import('./PositionContent'))
 const LevaContent = lazy(() => import('./LevaContent'))
+const ToastContent = lazy(() => import('./ToastContent'))
 
 export interface Demo {
   id: string
@@ -31,6 +32,14 @@ export const DEMO_REGISTRY: Demo[] = [
     component: PositionContent,
     description: 'Position elements relative to targets',
     path: '/components/usePosition',
+  },
+  {
+    id: 'useToast',
+    label: 'useToast',
+    section: 'Hooks',
+    component: ToastContent,
+    description: 'Toast notification system',
+    path: '/components/useToast',
   },
   {
     id: 'leva-demo',

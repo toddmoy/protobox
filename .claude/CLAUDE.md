@@ -33,7 +33,7 @@ This is a React prototyping boilerplate built with:
 - `src/hooks/` - Custom React hooks
   - `usePosition.tsx` - Hook for positioning elements relative to another (tooltips, dropdowns)
   - `useTypewriter.tsx` - Hook for typewriter text animation effects
-  - `use-toast.ts` - Toast notification hook (shadcn)
+  - `useToast.ts` - Toast notification hook (shadcn)
 - `src/lib/utils.ts` - Utility functions (cn() for className merging)
 - `src/styles/easing.css` - Custom easing curves (--ease-out-expo, etc.)
 - `src/index.css` - Global styles, Tailwind directives, CSS variables, `.center-content` utility

@@ -36,7 +36,7 @@ const { text, isComplete, start, pause, reset } = useTypewriter('Hello, World!',
 <p>{text}</p>
 ```
 
-### use-toast
+### useToast
 Toast notification hook from shadcn/ui. See shadcn documentation.
 
 ## Guidelines
