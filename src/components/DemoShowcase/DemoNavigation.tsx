@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router'
 import { DEMO_REGISTRY, Demo } from './demoRegistry'
 import { cn } from '@/lib/utils'
 import { Play } from 'lucide-react'

@@ -1,18 +1,18 @@
 import { useRef, useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router'
 import {
   ResizablePanelGroup,
   ResizablePanel,
   ResizableHandle,
 } from '@/components/ui/resizable'
-import { ImperativePanelHandle } from 'react-resizable-panels'
+import { type PanelImperativeHandle } from 'react-resizable-panels'
 import DemoNavigation from '@/components/DemoShowcase/DemoNavigation'
 import { Button } from '@/components/ui/button'
 import { PanelLeftClose, PanelLeft } from 'lucide-react'
 
 export default function ComponentShowcase() {
   const [isCollapsed, setIsCollapsed] = useState(false)
-  const panelRef = useRef<ImperativePanelHandle>(null)
+  const panelRef = useRef<PanelImperativeHandle>(null)
 
   const toggleCollapse = () => {
     const panel = panelRef.current
@@ -30,14 +30,13 @@ export default function ComponentShowcase() {
       <ResizablePanelGroup direction="horizontal">
         {/* Left Panel - Collapsible Navigation */}
         <ResizablePanel
-          ref={panelRef}
-          defaultSize={20}
-          minSize={15}
-          maxSize={30}
+          panelRef={panelRef}
+          defaultSize="20%"
+          minSize="15%"
+          maxSize="30%"
           collapsible
-          collapsedSize={0}
-          onCollapse={() => setIsCollapsed(true)}
-          onExpand={() => setIsCollapsed(false)}
+          collapsedSize="0%"
+          onResize={(size) => setIsCollapsed(size.asPercentage === 0)}
         >
           <div className="h-full border-r border-border overflow-auto">
             <div className="p-4">
@@ -58,7 +57,7 @@ export default function ComponentShowcase() {
         <ResizableHandle withHandle />
 
         {/* Right Panel - Content */}
-        <ResizablePanel defaultSize={80}>
+        <ResizablePanel defaultSize="80%">
           <div className="h-full flex flex-col overflow-hidden">
             {/* Toolbar */}
             <div className="flex items-center gap-2 px-4 py-2 border-b border-border bg-zinc-50/50 dark:bg-zinc-900/50">

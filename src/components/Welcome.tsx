@@ -1,5 +1,5 @@
 import { FiBox } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import { ArrowRight } from 'lucide-react'
 
 const Welcome = () => (

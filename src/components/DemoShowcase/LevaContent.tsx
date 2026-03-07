@@ -1,5 +1,5 @@
 import { useControls, button, folder, buttonGroup } from 'leva'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { useState } from 'react'
 
 export default function LevaContent() {

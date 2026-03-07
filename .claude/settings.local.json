@@ -13,7 +13,17 @@
       "Bash(for file in /Users/toddmoy/Code/toddmoy/protobox/.claude/skills/*.md)",
       "Bash(head:*)",
       "Bash(done)",
-      "Bash(pnpm build:*)"
+      "Bash(pnpm build:*)",
+      "Bash(pnpm outdated:*)",
+      "Bash(pnpm audit:*)",
+      "Bash(pnpm update:*)",
+      "Bash(pnpm approve-builds:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm:*)",
+      "Bash(node:*)",
+      "Bash(lsof:*)",
+      "Bash(git status:*)",
+      "Bash(git:*)"
     ],
     "deny": [],
     "ask": []

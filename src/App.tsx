@@ -1,6 +1,6 @@
 import './App.css'
 import Welcome from './components/Welcome'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router'
 import ComponentShowcase from './pages/ComponentShowcase'
 import { lazy, Suspense } from 'react'
 
