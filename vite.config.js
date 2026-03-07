@@ -82,6 +82,9 @@ export default defineConfig({
       '@': path.resolve(import.meta.dirname, './src'),
     },
   },
+  build: {
+    outDir: 'build',
+  },
   server: {
     allowedHosts: [
       '.lhr.life',
