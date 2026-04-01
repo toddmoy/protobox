@@ -14,8 +14,8 @@ function NavLink({ demo, icon }: { demo: Demo; icon?: ReactNode }) {
       className={cn(
         'flex items-center gap-2 w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors',
         isActive
-          ? 'bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50'
-          : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-50'
+          ? 'bg-zinc-100 text-zinc-900'
+          : 'text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900'
       )}
     >
       {icon}

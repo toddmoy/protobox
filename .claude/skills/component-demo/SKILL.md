@@ -42,7 +42,7 @@ Follow component best practices from `src/components/README.md`:
 - Accept `style`, `className`, and native element props
 - Use composition for icons (via props, not hardcoded)
 - Standard heights: 16px, 20px, 40px
-- Support dark mode with Tailwind `dark:` variants
+- Do NOT use dark mode — this project is light-mode only
 
 ### Phase 3: Demo Page Creation (if requested)
 
@@ -262,7 +262,7 @@ Organize demo content with clear sections:
   <Card className="p-6 space-y-3">
     <div className="flex items-center gap-2">
       <Badge variant="secondary">Basic</Badge>
-      <span className="text-xs text-zinc-500 dark:text-zinc-400">
+      <span className="text-xs text-zinc-500">
         Configuration details
       </span>
     </div>
@@ -272,9 +272,9 @@ Organize demo content with clear sections:
   {/* More examples... */}
 
   {/* Code Example */}
-  <Card className="p-6 space-y-3 bg-zinc-50 dark:bg-zinc-900">
+  <Card className="p-6 space-y-3 bg-zinc-50">
     <Badge variant="outline">Usage Example</Badge>
-    <pre className="text-xs text-zinc-700 dark:text-zinc-300 overflow-x-auto">
+    <pre className="text-xs text-zinc-700 overflow-x-auto">
       <code>{`// Code example here`}</code>
     </pre>
   </Card>
@@ -296,7 +296,7 @@ Include diverse examples:
 - Use Card components for grouping examples
 - Add Badge components for labeling examples
 - Include configuration details in muted text
-- Support dark mode throughout
+- Light-mode only — do not use `dark:` variants
 - Add visual indicators for interactive elements
 - Show state changes clearly
 
@@ -315,7 +315,7 @@ After creating or updating component demos:
 - [ ] Navigate to the demo route
 - [ ] Verify all examples render correctly
 - [ ] Test interactive elements (buttons, inputs, controls)
-- [ ] Check dark mode appearance
+- [ ] Verify light-mode-only styling (no `dark:` variants)
 - [ ] Verify code examples are accurate
 - [ ] Test on different screen sizes
 - [ ] Check TypeScript compilation
@@ -416,5 +416,5 @@ Claude:
 4. **Provide variety** - Show multiple use cases, not just basic usage
 5. **Make it interactive** - Let users experiment with controls
 6. **Include code** - Show implementation examples
-7. **Support dark mode** - Test in both themes
+7. **Light-mode only** - Do not use `dark:` variants
 8. **Organize clearly** - Use consistent structure across demos

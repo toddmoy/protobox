@@ -13,7 +13,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Protobox is a React/Vite prototyping boilerplate with:
 - **shadcn/ui** - 34 pre-installed components
-- **Tailwind CSS** - Class-based dark mode support
+- **Tailwind CSS** - Utility-first styling
 - **TypeScript** - Strict configuration
 - **React Router v6** - Client-side routing
 
@@ -44,7 +44,7 @@ npx shadcn-ui@latest add <component-name>
 
 1. Prefer editing existing files over creating new ones
 2. Use shadcn components as building blocks
-3. Support dark mode with `dark:` variants
+3. Do NOT use dark mode (`dark:` variants) — this project is light-mode only
 4. Use the `cn()` utility for class merging
 
 See `.claude/CLAUDE.md` for detailed architecture documentation.

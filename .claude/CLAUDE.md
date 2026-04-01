@@ -16,7 +16,7 @@ This is a React prototyping boilerplate built with:
 - **Vite** for build tooling and development server
 - **React Router v6** for client-side routing in `src/App.tsx`
 - **shadcn/ui** components library with custom configuration (34 components pre-installed)
-- **Tailwind CSS** for styling with CSS modules support and class-based dark mode
+- **Tailwind CSS** for styling with CSS modules support (light-mode only, no dark mode)
 - **TypeScript** with strict configuration
 
 ### Key Structure
@@ -24,7 +24,7 @@ This is a React prototyping boilerplate built with:
 - `src/components/ui/` - shadcn/ui components (auto-generated, don't edit directly)
 - `src/components/` - Custom React components
   - `Welcome.tsx` - Example landing page with animations, drag-drop, hotkeys
-  - `MCP.tsx` - Example card component demonstrating dark mode and composition
+  - `MCP.tsx` - Example card component demonstrating composition
   - `README.md` - Component development guidelines (heights, props, composition patterns)
 - `src/pages/` - Page components for routing
   - `LevaDemo.tsx` - Interactive Leva controls demonstration
@@ -69,17 +69,6 @@ import styles from './Component.module.css'
 - **UI**: Full Radix UI primitives via shadcn/ui
 - **Drag & Drop**: @dnd-kit/core for drag and drop interactions
 - **Layouts**: react-resizable-panels, vaul for drawers
-
-### Dark Mode
-
-Dark mode is enabled using Tailwind's class-based system:
-```tsx
-<div className="bg-white dark:bg-zinc-900 text-black dark:text-white">
-  Content
-</div>
-```
-
-CSS variables are configured for light/dark themes in `src/index.css`. Toggle by adding/removing the `dark` class on the root element.
 
 ### Routing
 
@@ -168,7 +157,6 @@ Use these as reference implementations:
 - shadcn Badge component
 
 **src/components/MCP.tsx:**
-- Dark mode styling patterns
 - Component composition (Avatar, Badge)
 - Lucide icons integration
 - Realistic mock data generation
@@ -210,7 +198,7 @@ import { DndContext, useDraggable } from '@dnd-kit/core'
 
 - **vite.config.js** - Path alias (`@` → `./src`), React plugin
 - **tsconfig.json** - Strict TypeScript, path mapping, ES2020 target
-- **tailwind.config.js** - Dark mode, custom colors via CSS variables, animations
+- **tailwind.config.js** - Custom colors via CSS variables, animations
 - **components.json** - shadcn/ui configuration (style: new-york, icons: lucide)
 - **.eslintrc.cjs** - React + TypeScript rules, React refresh plugin
 
@@ -224,4 +212,4 @@ import { DndContext, useDraggable } from '@dnd-kit/core'
 6. **Use CSS modules** for component-specific styles to avoid conflicts
 7. **Utilize custom hooks** (usePosition, useHotkeys) for common interactions
 8. **Generate mock data** with faker for realistic prototypes
-9. **Support dark mode** by using CSS variables and dark: variants
+9. **Do NOT use dark mode** — this project is light-mode only, never use `dark:` variants

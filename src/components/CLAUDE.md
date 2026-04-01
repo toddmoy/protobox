@@ -32,7 +32,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 ## Reference Components
 
 - **Welcome.tsx** - Framer Motion, drag-drop, hotkeys, faker
-- **MCP.tsx** - Dark mode patterns, composition, Lucide icons
+- **MCP.tsx** - Composition patterns, Lucide icons
 
 ## Adding shadcn Components
 

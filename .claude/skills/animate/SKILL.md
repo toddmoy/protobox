@@ -23,7 +23,7 @@ Available in `src/styles/easing.css` (imported globally):
 - `--ease-in-out-quad`, `--ease-in-out-cubic`, `--ease-in-out-quart`, `--ease-in-out-quint`, `--ease-in-out-expo`, `--ease-in-out-circ`
 
 ### 3. Tailwind CSS
-Full Tailwind including transitions, transforms, and animations. Dark mode via `dark:` prefix.
+Full Tailwind including transitions, transforms, and animations. Light-mode only — do not use `dark:` variants.
 
 ## Core Principles
 
@@ -145,7 +145,7 @@ Full Tailwind including transitions, transforms, and animations. Dark mode via `
 
 **Pulse animation:**
 ```tsx
-<div className="animate-pulse bg-zinc-200 dark:bg-zinc-700 h-4 w-full rounded" />
+<div className="animate-pulse bg-zinc-200 h-4 w-full rounded" />
 ```
 
 **Progress bar with Motion:**

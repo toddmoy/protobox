@@ -161,17 +161,17 @@ export default function LevaContent() {
         </motion.div>
 
         {/* Text Output */}
-        <div className="bg-white dark:bg-zinc-800 rounded-lg p-8 shadow-lg">
-          <h3 className="text-xl font-bold mb-4 text-zinc-900 dark:text-zinc-50">
+        <div className="bg-white rounded-lg p-8 shadow-lg">
+          <h3 className="text-xl font-bold mb-4 text-zinc-900">
             Control Values
           </h3>
-          <div className="space-y-3 text-sm font-mono text-zinc-700 dark:text-zinc-300">
+          <div className="space-y-3 text-sm font-mono text-zinc-700">
             <div>
-              <span className="text-zinc-500 dark:text-zinc-500">Position 3D:</span>{' '}
+              <span className="text-zinc-500">Position 3D:</span>{' '}
               {`{ x: ${vectorControls.position3D.x}, y: ${vectorControls.position3D.y}, z: ${vectorControls.position3D.z} }`}
             </div>
             <div>
-              <span className="text-zinc-500 dark:text-zinc-500">Accent:</span>{' '}
+              <span className="text-zinc-500">Accent:</span>{' '}
               <span
                 className="inline-block w-4 h-4 rounded"
                 style={{ backgroundColor: colorControls.accentColor }}
@@ -179,22 +179,22 @@ export default function LevaContent() {
               {colorControls.accentColor}
             </div>
             <div>
-              <span className="text-zinc-500 dark:text-zinc-500">Description:</span>
-              <div className="mt-1 p-2 bg-zinc-100 dark:bg-zinc-700 rounded">
+              <span className="text-zinc-500">Description:</span>
+              <div className="mt-1 p-2 bg-zinc-100 rounded">
                 {selectionControls.description}
               </div>
             </div>
             <div>
-              <span className="text-zinc-500 dark:text-zinc-500">Animation:</span>{' '}
+              <span className="text-zinc-500">Animation:</span>{' '}
               {nestedControls.duration}ms {nestedControls.easing}
               {nestedControls.loop && ' (loop)'}
             </div>
             <div>
-              <span className="text-zinc-500 dark:text-zinc-500">Quality:</span>{' '}
+              <span className="text-zinc-500">Quality:</span>{' '}
               {nestedControls.quality} {nestedControls.vsync && '(vsync)'}
             </div>
             <div>
-              <span className="text-zinc-500 dark:text-zinc-500">Smooth Value:</span>{' '}
+              <span className="text-zinc-500">Smooth Value:</span>{' '}
               {smoothValue.toFixed(1)}
             </div>
           </div>
@@ -204,9 +204,9 @@ export default function LevaContent() {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-6 p-4 bg-green-100 dark:bg-green-900/30 rounded-lg"
+              className="mt-6 p-4 bg-green-100 rounded-lg"
             >
-              <p className="text-green-800 dark:text-green-200 font-medium">
+              <p className="text-green-800 font-medium">
                 {message}
               </p>
             </motion.div>
@@ -216,29 +216,29 @@ export default function LevaContent() {
 
       {/* Feature Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-white dark:bg-zinc-800 rounded-lg p-6 shadow">
-          <h3 className="font-bold mb-2 text-zinc-900 dark:text-zinc-50">
+        <div className="bg-white rounded-lg p-6 shadow">
+          <h3 className="font-bold mb-2 text-zinc-900">
             Rich Controls
           </h3>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
+          <p className="text-sm text-zinc-600">
             Numbers, text, colors, vectors, ranges, and more control types available
             out of the box.
           </p>
         </div>
-        <div className="bg-white dark:bg-zinc-800 rounded-lg p-6 shadow">
-          <h3 className="font-bold mb-2 text-zinc-900 dark:text-zinc-50">
+        <div className="bg-white rounded-lg p-6 shadow">
+          <h3 className="font-bold mb-2 text-zinc-900">
             Organization
           </h3>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
+          <p className="text-sm text-zinc-600">
             Group related controls using folders and panels for better organization and
             collapsible sections.
           </p>
         </div>
-        <div className="bg-white dark:bg-zinc-800 rounded-lg p-6 shadow">
-          <h3 className="font-bold mb-2 text-zinc-900 dark:text-zinc-50">
+        <div className="bg-white rounded-lg p-6 shadow">
+          <h3 className="font-bold mb-2 text-zinc-900">
             Performance
           </h3>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
+          <p className="text-sm text-zinc-600">
             Use transient mode for smooth real-time updates without causing expensive
             re-renders.
           </p>

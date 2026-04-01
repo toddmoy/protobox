@@ -51,11 +51,11 @@ export default function TypewriterContent() {
       <Card className="p-6 space-y-3">
         <div className="flex items-center gap-2">
           <Badge variant="secondary">Basic</Badge>
-          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+          <span className="text-xs text-zinc-500">
             speed: 80ms, cursor: true, delay: 500ms
           </span>
         </div>
-        <p className="text-lg font-mono text-zinc-900 dark:text-zinc-50 min-h-[2rem]">
+        <p className="text-lg font-mono text-zinc-900 min-h-[2rem]">
           {basic.text}
         </p>
       </Card>
@@ -64,11 +64,11 @@ export default function TypewriterContent() {
       <Card className="p-6 space-y-3">
         <div className="flex items-center gap-2">
           <Badge variant="secondary">Fast</Badge>
-          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+          <span className="text-xs text-zinc-500">
             speed: 30ms, cursor: false, delay: 1000ms
           </span>
         </div>
-        <p className="text-lg font-mono text-zinc-900 dark:text-zinc-50 min-h-[2rem]">
+        <p className="text-lg font-mono text-zinc-900 min-h-[2rem]">
           {fast.text}
         </p>
       </Card>
@@ -77,11 +77,11 @@ export default function TypewriterContent() {
       <Card className="p-6 space-y-3">
         <div className="flex items-center gap-2">
           <Badge variant="secondary">Looping</Badge>
-          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+          <span className="text-xs text-zinc-500">
             loop: true, loopDelay: 2000ms
           </span>
         </div>
-        <p className="text-lg font-mono text-zinc-900 dark:text-zinc-50 min-h-[2rem]">
+        <p className="text-lg font-mono text-zinc-900 min-h-[2rem]">
           {looping.text}
         </p>
       </Card>
@@ -90,11 +90,11 @@ export default function TypewriterContent() {
       <Card className="p-6 space-y-4">
         <div className="flex items-center gap-2">
           <Badge variant="secondary">Manual Control</Badge>
-          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+          <span className="text-xs text-zinc-500">
             autoStart: false
           </span>
         </div>
-        <p className="text-lg font-mono text-zinc-900 dark:text-zinc-50 min-h-[2rem]">
+        <p className="text-lg font-mono text-zinc-900 min-h-[2rem]">
           {manual.text}
         </p>
         <div className="flex gap-2">
@@ -121,7 +121,7 @@ export default function TypewriterContent() {
             Reset
           </Button>
         </div>
-        <div className="flex gap-4 text-xs text-zinc-600 dark:text-zinc-400">
+        <div className="flex gap-4 text-xs text-zinc-600">
           <span>
             Status: {manual.isTyping ? 'Typing...' : manual.isComplete ? 'Complete' : 'Ready'}
           </span>
@@ -132,17 +132,17 @@ export default function TypewriterContent() {
       <Card className="p-6 space-y-4">
         <div className="flex items-center gap-2">
           <Badge variant="secondary">Custom Text</Badge>
-          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+          <span className="text-xs text-zinc-500">
             Type your own message
           </span>
         </div>
         <textarea
           value={customText}
           onChange={(e) => setCustomText(e.target.value)}
-          className="w-full p-3 border border-zinc-200 dark:border-zinc-800 rounded-md bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-50 font-mono text-sm min-h-[100px] resize-y"
+          className="w-full p-3 border border-zinc-200 rounded-md bg-white text-zinc-900 font-mono text-sm min-h-[100px] resize-y"
           placeholder="Enter custom text..."
         />
-        <p className="text-lg font-mono text-zinc-900 dark:text-zinc-50 min-h-[2rem]">
+        <p className="text-lg font-mono text-zinc-900 min-h-[2rem]">
           {custom.text}
         </p>
         <div className="flex gap-2">
@@ -158,9 +158,9 @@ export default function TypewriterContent() {
       </Card>
 
       {/* Code Example */}
-      <Card className="p-6 space-y-3 bg-zinc-50 dark:bg-zinc-900">
+      <Card className="p-6 space-y-3 bg-zinc-50">
         <Badge variant="outline">Usage Example</Badge>
-        <pre className="text-xs text-zinc-700 dark:text-zinc-300 overflow-x-auto">
+        <pre className="text-xs text-zinc-700 overflow-x-auto">
           <code>{`import useTypewriter from '@/hooks/useTypewriter'
 
 const { text, isTyping, isComplete, start, pause, reset } = useTypewriter(

@@ -3,7 +3,7 @@
 An opinionated prototyping boilerplate for Codesandbox's Devbox or local development.
 
 - [x] React / Vite
-- [x] Tailwind CSS with dark mode
+- [x] Tailwind CSS
 - [x] CSS Modules
 - [x] Framer Motion
 - [x] Lucide icons + react-icons
@@ -140,18 +140,6 @@ import { DndContext, useDraggable } from '@dnd-kit/core'
 // See src/components/Welcome.tsx for a complete example
 ```
 
-### Dark mode support
-
-Dark mode is enabled via Tailwind's class-based system:
-
-```tsx
-<div className="bg-white dark:bg-zinc-900">
-  Content adapts to theme
-</div>
-```
-
-Toggle dark mode by adding/removing the `dark` class on the root element.
-
 ### Add a page
 
 Routing is provided by [React Router v6](https://reactrouter.com/en/main/start/tutorial).
@@ -286,7 +274,7 @@ To use a skill in Claude Code, invoke it when working on your project (skills ar
 ## Example Components
 
 - **src/components/Welcome.tsx** - Landing page demonstrating Framer Motion, drag-and-drop, hotkeys, and faker
-- **src/components/MCP.tsx** - Complex card component showcasing dark mode, composition patterns, and realistic mock data
+- **src/components/MCP.tsx** - Complex card component showcasing composition patterns and realistic mock data
 
 ## Development Commands
 

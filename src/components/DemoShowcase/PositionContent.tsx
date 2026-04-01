@@ -91,7 +91,7 @@ export default function PositionContent() {
           <div
             ref={ref}
             style={style}
-            className="w-48 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black px-4 py-3 rounded-lg shadow-xl z-10"
+            className="w-48 bg-zinc-900 text-white px-4 py-3 rounded-lg shadow-xl z-10"
           >
             <div className="text-sm font-medium mb-1">Positioned Tooltip</div>
             <div className="text-xs opacity-80">
@@ -104,7 +104,7 @@ export default function PositionContent() {
       </div>
 
       {/* Instructions */}
-      <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
         <h2 className="font-semibold mb-2">Test Instructions:</h2>
         <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
           <li>Try different position options (top, bottom, left, right)</li>
@@ -148,7 +148,7 @@ const PositionExample = ({ position }: { position: Position }) => {
       <div
         ref={ref}
         style={style}
-        className="bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black px-2 py-1 rounded text-xs font-medium whitespace-nowrap"
+        className="bg-zinc-900 text-white px-2 py-1 rounded text-xs font-medium whitespace-nowrap"
       >
         {position}
       </div>
