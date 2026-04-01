@@ -34,11 +34,11 @@ interface UsePositionOptions {
 /**
  * Return value from usePosition hook
  */
-interface UsePositionReturn {
+interface UsePositionReturn<T extends HTMLElement = HTMLElement> {
   /**
    * Ref to attach to the positioned element
    */
-  ref: RefObject<HTMLElement>
+  ref: RefObject<T | null>
   /**
    * Style object containing position coordinates
    */
@@ -66,10 +66,10 @@ interface UsePositionReturn {
  * )
  * ```
  */
-function usePosition(
-  targetRef: RefObject<HTMLElement>,
+function usePosition<T extends HTMLElement = HTMLElement>(
+  targetRef: RefObject<HTMLElement | null>,
   options: UsePositionOptions = {}
-): UsePositionReturn {
+): UsePositionReturn<T> {
   const { position = 'bottom', alignment = 'start', offset = 0 } = options
 
   const [style, setStyle] = useState<CSSProperties>({
@@ -79,7 +79,7 @@ function usePosition(
     zIndex: 9999,
   })
 
-  const positionedElementRef = useRef<HTMLElement>(null)
+  const positionedElementRef = useRef<T | null>(null)
 
   const updatePosition = useCallback(() => {
     if (!targetRef.current || !positionedElementRef.current) return

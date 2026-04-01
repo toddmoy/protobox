@@ -55,7 +55,7 @@ export default function LevaContent() {
   })
 
   // Button Actions
-  const buttonControls = useControls('Actions', {
+  useControls('Actions', {
     'Click Me': button(() => {
       setClickCount((prev) => prev + 1)
       setMessage(`Button clicked ${clickCount + 1} times!`)
@@ -104,7 +104,7 @@ export default function LevaContent() {
   })
 
   // Monitor controls (read-only display)
-  const monitorControls = useControls('Monitor', {
+  useControls('Monitor', {
     'Frame Count': {
       value: clickCount,
       disabled: true,

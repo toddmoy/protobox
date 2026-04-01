@@ -126,8 +126,8 @@ function useTypewriter(
   const [isComplete, setIsComplete] = useState(false)
   const [isPaused, setIsPaused] = useState(!autoStart)
 
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const cursorIntervalRef = useRef<NodeJS.Timeout | null>(null)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const cursorIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const [showCursor, setShowCursor] = useState(true)
 
   // Cursor blinking effect
