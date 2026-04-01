@@ -81,11 +81,11 @@ export default function ToastContent() {
       <Card className="p-6 space-y-3">
         <div className="flex items-center gap-2">
           <Badge variant="secondary">Basic</Badge>
-          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+          <span className="text-xs text-zinc-500">
             title + description
           </span>
         </div>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+        <p className="text-sm text-zinc-600">
           A simple toast with a title and description.
         </p>
         <Button onClick={showBasicToast} size="sm">
@@ -98,11 +98,11 @@ export default function ToastContent() {
       <Card className="p-6 space-y-3">
         <div className="flex items-center gap-2">
           <Badge variant="secondary">Title Only</Badge>
-          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+          <span className="text-xs text-zinc-500">
             minimal notification
           </span>
         </div>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+        <p className="text-sm text-zinc-600">
           A compact toast with just a title.
         </p>
         <Button onClick={showTitleOnlyToast} size="sm" variant="outline">
@@ -115,11 +115,11 @@ export default function ToastContent() {
       <Card className="p-6 space-y-3">
         <div className="flex items-center gap-2">
           <Badge variant="secondary">Description Only</Badge>
-          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+          <span className="text-xs text-zinc-500">
             subtle message
           </span>
         </div>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+        <p className="text-sm text-zinc-600">
           A toast with just a description, no title.
         </p>
         <Button onClick={showDescriptionOnlyToast} size="sm" variant="outline">
@@ -132,11 +132,11 @@ export default function ToastContent() {
       <Card className="p-6 space-y-3">
         <div className="flex items-center gap-2">
           <Badge variant="secondary">Destructive</Badge>
-          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+          <span className="text-xs text-zinc-500">
             variant: destructive
           </span>
         </div>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+        <p className="text-sm text-zinc-600">
           An error toast with destructive styling for alerts and warnings.
         </p>
         <Button onClick={showDestructiveToast} size="sm" variant="destructive">
@@ -149,11 +149,11 @@ export default function ToastContent() {
       <Card className="p-6 space-y-3">
         <div className="flex items-center gap-2">
           <Badge variant="secondary">With Action</Badge>
-          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+          <span className="text-xs text-zinc-500">
             action button
           </span>
         </div>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+        <p className="text-sm text-zinc-600">
           A toast with an action button for user interaction.
         </p>
         <Button onClick={showActionToast} size="sm" variant="outline">
@@ -165,11 +165,11 @@ export default function ToastContent() {
       <Card className="p-6 space-y-3">
         <div className="flex items-center gap-2">
           <Badge variant="secondary">Programmatic Control</Badge>
-          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+          <span className="text-xs text-zinc-500">
             dismiss(), update()
           </span>
         </div>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+        <p className="text-sm text-zinc-600">
           Control toasts programmatically with dismiss and update functions.
         </p>
         <div className="flex gap-2">
@@ -184,9 +184,9 @@ export default function ToastContent() {
       </Card>
 
       {/* Code Example */}
-      <Card className="p-6 space-y-3 bg-zinc-50 dark:bg-zinc-900">
+      <Card className="p-6 space-y-3 bg-zinc-50">
         <Badge variant="outline">Usage Example</Badge>
-        <pre className="text-xs text-zinc-700 dark:text-zinc-300 overflow-x-auto">
+        <pre className="text-xs text-zinc-700 overflow-x-auto">
           <code>{`import { useToast, toast } from '@/hooks/useToast'
 import { Toaster } from '@/components/ui/toaster'
 import { ToastAction } from '@/components/ui/toast'
@@ -236,15 +236,15 @@ function MyComponent() {
       </Card>
 
       {/* API Reference */}
-      <Card className="p-6 space-y-3 bg-zinc-50 dark:bg-zinc-900">
+      <Card className="p-6 space-y-3 bg-zinc-50">
         <Badge variant="outline">API Reference</Badge>
-        <div className="space-y-4 text-sm text-zinc-700 dark:text-zinc-300">
+        <div className="space-y-4 text-sm text-zinc-700">
           <div>
             <h4 className="font-semibold mb-1">toast(options)</h4>
-            <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-2">
+            <p className="text-xs text-zinc-500 mb-2">
               Creates a new toast notification. Returns {`{ id, dismiss, update }`}.
             </p>
-            <pre className="text-xs bg-zinc-100 dark:bg-zinc-800 p-2 rounded overflow-x-auto">
+            <pre className="text-xs bg-zinc-100 p-2 rounded overflow-x-auto">
               <code>{`toast({
   title?: string | ReactNode,
   description?: string | ReactNode,
@@ -255,10 +255,10 @@ function MyComponent() {
           </div>
           <div>
             <h4 className="font-semibold mb-1">useToast()</h4>
-            <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-2">
+            <p className="text-xs text-zinc-500 mb-2">
               Hook to access toast state and controls.
             </p>
-            <pre className="text-xs bg-zinc-100 dark:bg-zinc-800 p-2 rounded overflow-x-auto">
+            <pre className="text-xs bg-zinc-100 p-2 rounded overflow-x-auto">
               <code>{`const { toasts, toast, dismiss } = useToast()
 
 // toasts: array of active toasts

@@ -26,7 +26,7 @@ export default function ComponentShowcase() {
   }
 
   return (
-    <div className="h-screen w-full bg-white dark:bg-zinc-950">
+    <div className="h-screen w-full bg-white">
       <ResizablePanelGroup direction="horizontal">
         {/* Left Panel - Collapsible Navigation */}
         <ResizablePanel
@@ -41,7 +41,7 @@ export default function ComponentShowcase() {
           <div className="h-full border-r border-border overflow-auto">
             <div className="p-4">
               <div className="mb-6">
-                <h1 className="text-lg font-bold text-zinc-900 dark:text-zinc-50 mb-1">
+                <h1 className="text-lg font-bold text-zinc-900 mb-1">
                   Components
                 </h1>
                 <p className="text-xs text-muted-foreground">
@@ -60,7 +60,7 @@ export default function ComponentShowcase() {
         <ResizablePanel defaultSize="80%">
           <div className="h-full flex flex-col overflow-hidden">
             {/* Toolbar */}
-            <div className="flex items-center gap-2 px-4 py-2 border-b border-border bg-zinc-50/50 dark:bg-zinc-900/50">
+            <div className="flex items-center gap-2 px-4 py-2 border-b border-border bg-zinc-50/50">
               <Button
                 variant="ghost"
                 size="sm"
