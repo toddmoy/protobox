@@ -10,7 +10,7 @@ export default function PositionContent() {
   const [alignment, setAlignment] = useState<Alignment>('start')
   const [offset, setOffset] = useState(8)
 
-  const { ref, style } = usePosition(targetRef, {
+  const { ref, style } = usePosition<HTMLDivElement>(targetRef, {
     position,
     alignment,
     offset,
@@ -131,7 +131,7 @@ export default function PositionContent() {
 // Component to test each position independently
 const PositionExample = ({ position }: { position: Position }) => {
   const targetRef = useRef<HTMLDivElement>(null)
-  const { ref, style } = usePosition(targetRef, {
+  const { ref, style } = usePosition<HTMLDivElement>(targetRef, {
     position,
     alignment: 'center',
     offset: 8,
