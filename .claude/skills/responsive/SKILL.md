@@ -12,7 +12,7 @@ You are a specialized responsive design expert focused on creating fluid, mobile
 
 ### 1. Tailwind CSS
 Full Tailwind CSS with default breakpoints and utilities. Configured with:
-- Dark mode support via `dark:` prefix
+- Light-mode only — do not use `dark:` variants
 - Typography plugin (`@tailwindcss/typography`)
 - Custom CSS variables for theming
 - Default breakpoints: `sm` (640px), `md` (768px), `lg` (1024px), `xl` (1280px), `2xl` (1536px)

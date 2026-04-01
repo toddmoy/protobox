@@ -339,9 +339,9 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { MermaidDiagram } from './MermaidDiagram'
 
-export function MarkdownRenderer({ content, isDark = false }) {
+export function MarkdownRenderer({ content }) {
   return (
-    <div className="prose dark:prose-invert max-w-none">
+    <div className="prose max-w-none">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{

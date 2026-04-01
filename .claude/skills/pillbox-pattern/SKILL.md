@@ -205,7 +205,7 @@ const MENTION_OPTIONS: MentionOption[] = [
 const MentionMenu = ({ position, selectedIndex, items, onSelect, onKeyDown }) => {
   return (
     <div
-      className="absolute z-50 w-64 rounded-md border bg-white dark:bg-zinc-900 shadow-lg"
+      className="absolute z-50 w-64 rounded-md border bg-white shadow-lg"
       style={{ top: position.top, left: position.left }}
     >
       {items.map((option, index) => (
@@ -359,8 +359,7 @@ const content = {
 3. **Icon consistency**: Hash function ensures same label always gets same icon
 4. **Minimal extensions**: Only unformatted text to keep editor simple
 5. **Color coding**: Visual categorization via background colors
-6. **Dark mode**: All colors have dark mode variants
-7. **@ trigger pattern**: Standard mention-style autocomplete for discoverability
+6. **@ trigger pattern**: Standard mention-style autocomplete for discoverability
 8. **Real-time filtering**: Immediate feedback as user types query
 9. **Keyboard-first**: All actions accessible via keyboard
 10. **Selection reset on filter**: Always highlight first result when query changes

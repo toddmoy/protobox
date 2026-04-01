@@ -141,11 +141,7 @@ Variables:
   --color-gray-900: #111827;
 }
 
-/* Dark mode variants */
-.dark {
-  --color-gray-50: #18181B;
-  --color-gray-900: #FAFAFA;
-}
+/* Light-mode only — no dark mode in this project */
 ```
 
 **In Tailwind config (`tailwind.config.js`):**
