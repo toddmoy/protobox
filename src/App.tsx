@@ -9,6 +9,7 @@ const TypewriterContent = lazy(() => import('./components/DemoShowcase/Typewrite
 const PositionContent = lazy(() => import('./components/DemoShowcase/PositionContent'))
 const LevaContent = lazy(() => import('./components/DemoShowcase/LevaContent'))
 const ToastContent = lazy(() => import('./components/DemoShowcase/ToastContent'))
+const PromptBoxContent = lazy(() => import('./components/DemoShowcase/PromptBoxContent'))
 
 export default function App() {
   return (
@@ -48,6 +49,14 @@ export default function App() {
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <ToastContent />
+              </Suspense>
+            }
+          />
+          <Route
+            path="prompt-box"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <PromptBoxContent />
               </Suspense>
             }
           />
