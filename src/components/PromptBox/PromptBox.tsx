@@ -160,7 +160,7 @@ function Header({
   children: ReactNode
   className?: string
 }) {
-  return <div className={cn("px-4 pt-3 pb-1", className)}>{children}</div>
+  return <div className={cn("px-3 pt-3 pb-1", className)}>{children}</div>
 }
 
 // ---------------------------------------------------------------------------
@@ -205,7 +205,7 @@ function TextArea({
   )
 
   return (
-    <div className={cn("relative px-4 py-2", className)}>
+    <div className={cn("relative px-3 py-2", className)}>
       {children && <div className="mb-1 flex flex-wrap gap-1">{children}</div>}
       <div
         ref={editableRef}
@@ -238,7 +238,7 @@ function Footer({
   className?: string
 }) {
   return (
-    <div className={cn("flex items-center justify-end px-4 pt-1 pb-3", className)}>
+    <div className={cn("flex items-center justify-end px-3 pt-1 pb-3", className)}>
       {children}
     </div>
   )
