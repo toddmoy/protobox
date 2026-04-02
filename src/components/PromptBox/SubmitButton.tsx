@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { usePromptBox, type PromptBoxState } from "./PromptBox"
+import { usePromptBox, type PromptBoxState } from "./context"
 import { ArrowUp, Square, Loader2 } from "lucide-react"
 
 // ---------------------------------------------------------------------------
