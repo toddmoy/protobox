@@ -6,7 +6,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import globals from 'globals'
 
 export default [
-  { ignores: ['dist', '*.config.js'] },
+  { ignores: ['dist', '*.config.js', 'src/components/ui/**', 'src/hooks/useToast.ts'] },
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {

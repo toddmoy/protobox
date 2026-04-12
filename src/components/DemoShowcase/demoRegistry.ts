@@ -1,4 +1,5 @@
-import { ComponentType, lazy } from 'react'
+import { lazy } from 'react'
+import type { Demo } from './demoTypes'
 
 // Lazy load content components
 const TypewriterContent = lazy(() => import('./TypewriterContent'))
@@ -6,16 +7,6 @@ const PositionContent = lazy(() => import('./PositionContent'))
 const LevaContent = lazy(() => import('./LevaContent'))
 const ToastContent = lazy(() => import('./ToastContent'))
 const PromptBoxContent = lazy(() => import('./PromptBoxContent'))
-
-export interface Demo {
-  id: string
-  label: string
-  section: 'Hooks' | 'Components'
-  component: ComponentType<any>
-  description?: string
-  path: string
-  type?: 'showcase' | 'standalone' | 'playground'
-}
 
 export const DEMO_REGISTRY: Demo[] = [
   {
@@ -59,23 +50,3 @@ export const DEMO_REGISTRY: Demo[] = [
     path: '/components/prompt-box',
   },
 ]
-
-export const getDemoById = (id: string): Demo | undefined => {
-  return DEMO_REGISTRY.find((demo) => demo.id === id)
-}
-
-export const getFirstDemo = (): Demo => {
-  return DEMO_REGISTRY[0]
-}
-
-export const getDemosBySection = (section: 'Hooks' | 'Components'): Demo[] => {
-  return DEMO_REGISTRY.filter((demo) => demo.section === section)
-}
-
-export const getDemosByType = (type: Demo['type']): Demo[] => {
-  return DEMO_REGISTRY.filter((demo) => demo.type === type)
-}
-
-export const getPlaygroundDemos = (): Demo[] => {
-  return DEMO_REGISTRY.filter((demo) => demo.type === 'playground')
-}

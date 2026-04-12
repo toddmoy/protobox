@@ -1,30 +1,9 @@
 import { cn } from "@/lib/utils"
-import { usePromptBox, type PromptBoxState } from "./context"
+import { usePromptBox } from "./context"
+import { deriveSubmitState } from "./deriveSubmitState"
 import { ArrowUp, Square, Loader2 } from "lucide-react"
 
-// ---------------------------------------------------------------------------
-// Derived state
-// ---------------------------------------------------------------------------
-
-export type SubmitButtonState = "disabled" | "ready" | "submitting" | "stop"
-
-export function deriveSubmitState(
-  promptState: PromptBoxState,
-  hasContent: boolean,
-): SubmitButtonState {
-  if (promptState === "submitting") return "stop"
-  if (hasContent) return "ready"
-  return "disabled"
-}
-
-// ---------------------------------------------------------------------------
-// Component
-// ---------------------------------------------------------------------------
-
-export type SubmitButtonProps = {
-  className?: string
-  onStop?: () => void
-}
+export type { SubmitButtonState } from "./deriveSubmitState"
 
 export function SubmitButton({ className, onStop }: SubmitButtonProps) {
   const { state, value, submit, send } = usePromptBox()
@@ -63,4 +42,9 @@ export function SubmitButton({ className, onStop }: SubmitButtonProps) {
       )}
     </button>
   )
+}
+
+export type SubmitButtonProps = {
+  className?: string
+  onStop?: () => void
 }

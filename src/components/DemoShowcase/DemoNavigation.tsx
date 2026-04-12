@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router'
-import { DEMO_REGISTRY, Demo } from './demoRegistry'
+import { DEMO_REGISTRY } from './demoRegistry'
+import type { Demo } from './demoTypes'
 import { cn } from '@/lib/utils'
 import { Play } from 'lucide-react'
 import { ReactNode } from 'react'
