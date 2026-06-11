@@ -1,0 +1,89 @@
+@import '@zapier/design-tokens/custom-properties.css';
+@import '@zapier/design-system/style.css';
+@import '@zapier/zinnia-icons/style.css';
+
+/* Map Zinnia tokens to Tailwind v4 utilities (see zinnia-prototype-starter/tailwind.config.ts) */
+@theme inline {
+  --color-background-default: var(--zds-background-default);
+  --color-background-weaker: var(--zds-background-weaker);
+  --color-background-stronger: var(--zds-background-stronger);
+  --color-background-strongest: var(--zds-background-strongest);
+  --color-background-selected: var(--zds-background-selected);
+
+  --color-text-default: var(--zds-text-default);
+  --color-text-weaker: var(--zds-text-weaker);
+  --color-text-weakest: var(--zds-text-weakest);
+  --color-text-stronger: var(--zds-text-stronger);
+  --color-text-link: var(--zds-text-link);
+
+  --color-stroke-default: var(--zds-stroke-default);
+  --color-stroke-weaker: var(--zds-stroke-weaker);
+  --color-stroke-stronger: var(--zds-stroke-stronger);
+
+  --color-brand: var(--zds-ui-brand);
+  --color-brand-weaker: var(--zds-ui-brand-weaker);
+  --color-brand-stronger: var(--zds-ui-brand-stronger);
+
+  --color-primary: var(--zds-ui-primary);
+  --color-primary-weaker: var(--zds-ui-primary-weaker);
+  --color-primary-stronger: var(--zds-ui-primary-stronger);
+
+  --color-error: var(--zds-status-error);
+  --color-error-weaker: var(--zds-status-error-weaker);
+  --color-error-stronger: var(--zds-status-error-stronger);
+
+  --color-warning: var(--zds-status-warning);
+  --color-warning-weaker: var(--zds-status-warning-weaker);
+  --color-warning-stronger: var(--zds-status-warning-stronger);
+
+  --color-success: var(--zds-status-success);
+  --color-success-weaker: var(--zds-status-success-weaker);
+  --color-success-stronger: var(--zds-status-success-stronger);
+
+  --spacing-0: var(--zds-space-0);
+  --spacing-2: var(--zds-space-2);
+  --spacing-4: var(--zds-space-4);
+  --spacing-6: var(--zds-space-6);
+  --spacing-8: var(--zds-space-8);
+  --spacing-12: var(--zds-space-12);
+  --spacing-16: var(--zds-space-16);
+  --spacing-20: var(--zds-space-20);
+  --spacing-24: var(--zds-space-24);
+  --spacing-28: var(--zds-space-28);
+  --spacing-32: var(--zds-space-32);
+  --spacing-36: var(--zds-space-36);
+  --spacing-40: var(--zds-space-40);
+  --spacing-44: var(--zds-space-44);
+  --spacing-48: var(--zds-space-48);
+
+  --radius-none: var(--zds-radius-none);
+  --radius-sm: var(--zds-radius-xsmall);
+  --radius-DEFAULT: var(--zds-radius-default);
+  --radius-md: var(--zds-radius-medium);
+  --radius-lg: var(--zds-radius-large);
+  --radius-xl: var(--zds-radius-xlarge);
+  --radius-full: var(--zds-radius-pill);
+
+  --shadow-sm: var(--zds-shadow-1);
+  --shadow-DEFAULT: var(--zds-shadow-2);
+  --shadow-md: var(--zds-shadow-3);
+  --shadow-lg: var(--zds-shadow-4);
+  --shadow-xl: var(--zds-shadow-5);
+
+  --font-sans: var(--zds-inter);
+  --font-display: var(--zds-degular);
+  --font-mono: var(--zds-jet-brains-mono);
+
+  --text-xs: var(--zds-font-size-minimal);
+  --text-sm: var(--zds-font-size-small-print);
+  --text-base: var(--zds-font-size-default);
+  --text-lg: var(--zds-font-size-header);
+  --text-xl: var(--zds-font-size-header-large);
+  --text-2xl: var(--zds-font-size-header-xlarge);
+}
+
+.stack-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zds-space-4);
+}
