@@ -9,7 +9,7 @@ import {
 import { cn } from '@/lib/utils'
 import { Block } from './Block'
 import { SlashMenu } from './SlashMenu'
-import { useBlockFocus } from './useBlockFocus'
+import { useBlockFocus, caretLineInfo, setCaretAtPoint } from './useBlockFocus'
 import {
   createBlock,
   filterSlashOptions,
@@ -68,6 +68,21 @@ export function BlockEditor({ initialBlocks, className }: BlockEditorProps) {
 
   const indexOf = useCallback(
     (id: string) => blocks.findIndex((b) => b.id === id),
+    [blocks],
+  )
+
+  /**
+   * Nearest editable (non-divider) block in a direction from index `from`.
+   * Returns null at the document edge. Dividers aren't editable, so vertical
+   * arrows step over them to the next block that can hold a caret.
+   */
+  const adjacentEditable = useCallback(
+    (from: number, dir: 1 | -1): BlockData | null => {
+      for (let i = from + dir; i >= 0 && i < blocks.length; i += dir) {
+        if (blocks[i].type !== 'divider') return blocks[i]
+      }
+      return null
+    },
     [blocks],
   )
 
@@ -362,6 +377,30 @@ export function BlockEditor({ initialBlocks, className }: BlockEditorProps) {
       const offset = caretOffset(el)
       const text = el.textContent ?? ''
 
+      // Vertical arrows: when the caret is on the boundary line of this block,
+      // cross into the adjacent editable block keeping the column (x). Off the
+      // boundary, let the browser handle intra-block line movement.
+      if (
+        (e.key === 'ArrowDown' || e.key === 'ArrowUp') &&
+        !e.shiftKey &&
+        block.type !== 'divider'
+      ) {
+        const info = caretLineInfo(el)
+        const dir = e.key === 'ArrowDown' ? 1 : -1
+        const atBoundary = dir === 1 ? info?.atLastLine : info?.atFirstLine
+        if (info && atBoundary) {
+          const target = adjacentEditable(indexOf(block.id), dir)
+          if (target) {
+            e.preventDefault()
+            const targetEl = getRef(target.id)
+            // Entering from above lands on the target's top line; from below,
+            // its bottom line.
+            if (targetEl) setCaretAtPoint(targetEl, info.x, dir === 1 ? 'top' : 'bottom')
+          }
+        }
+        return
+      }
+
       if (e.key === '/' && block.type !== 'divider') {
         // Opening the menu — record where the slash lands and anchor the menu
         // to this block before the next render so usePosition can place it.
@@ -417,6 +456,8 @@ export function BlockEditor({ initialBlocks, className }: BlockEditorProps) {
       deleteBlock,
       indexOf,
       selectSingle,
+      adjacentEditable,
+      getRef,
     ],
   )
 

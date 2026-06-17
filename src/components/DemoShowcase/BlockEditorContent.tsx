@@ -52,6 +52,12 @@ export default function BlockEditorContent() {
             removes the last block.
           </li>
           <li>
+            <code className="rounded bg-gray-100 px-1">↑</code>/
+            <code className="rounded bg-gray-100 px-1">↓</code> — move between
+            blocks at line boundaries, keeping the caret's column; dividers are
+            skipped.
+          </li>
+          <li>
             <code className="rounded bg-gray-100 px-1">Esc</code> — selects the
             current block; <code className="rounded bg-gray-100 px-1">Shift</code>
             +click or <code className="rounded bg-gray-100 px-1">Shift</code>+↑/↓
