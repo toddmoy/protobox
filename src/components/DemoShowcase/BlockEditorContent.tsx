@@ -51,6 +51,14 @@ export default function BlockEditorContent() {
             start — merges into the previous block; deletes empty blocks; never
             removes the last block.
           </li>
+          <li>
+            <code className="rounded bg-gray-100 px-1">Esc</code> — selects the
+            current block; <code className="rounded bg-gray-100 px-1">Shift</code>
+            +click or <code className="rounded bg-gray-100 px-1">Shift</code>+↑/↓
+            extends the selection; <code className="rounded bg-gray-100 px-1">⌘/Ctrl+A</code>
+            selects all; <code className="rounded bg-gray-100 px-1">Backspace</code>
+            deletes selected blocks; Enter/arrow/click returns to editing.
+          </li>
         </ul>
       </div>
     </div>

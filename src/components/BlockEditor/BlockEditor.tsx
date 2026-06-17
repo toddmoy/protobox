@@ -4,6 +4,7 @@ import {
   useRef,
   useState,
   type KeyboardEvent,
+  type MouseEvent,
 } from 'react'
 import { cn } from '@/lib/utils'
 import { Block } from './Block'
@@ -46,7 +47,14 @@ export function BlockEditor({ initialBlocks, className }: BlockEditorProps) {
     () => initialBlocks ?? [createBlock('paragraph')],
   )
   const [slash, setSlash] = useState<SlashState | null>(null)
+  // Block-level selection (whole blocks, not cross-block text).
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(() => new Set())
+  // Block where a range-selection started (for shift+click / shift+arrow).
+  const selectionAnchor = useRef<string | null>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
   const { registerRef, requestFocus, getRef } = useBlockFocus()
+
+  const selecting = selectedIds.size > 0
 
   // Anchor for the slash menu's positioning. Set in the key handler (an event
   // handler may touch refs) the instant the menu opens, so usePosition's layout
@@ -64,6 +72,57 @@ export function BlockEditor({ initialBlocks, className }: BlockEditorProps) {
   )
 
   const closeSlash = useCallback(() => setSlash(null), [])
+
+  // --- Block-level selection ----------------------------------------------
+
+  const clearSelection = useCallback(() => {
+    selectionAnchor.current = null
+    setSelectedIds((prev) => (prev.size === 0 ? prev : new Set()))
+  }, [])
+
+  /** Select a single block, set it as the range anchor, focus the container. */
+  const selectSingle = useCallback((id: string) => {
+    selectionAnchor.current = id
+    setSelectedIds(new Set([id]))
+    // Focus the container so blurred editables hand keystrokes to the
+    // selection-mode key handler.
+    containerRef.current?.focus()
+  }, [])
+
+  /** Select the inclusive index range between the anchor and a target block. */
+  const selectRange = useCallback(
+    (targetId: string) => {
+      const anchorId = selectionAnchor.current ?? targetId
+      const a = indexOf(anchorId)
+      const b = indexOf(targetId)
+      if (a === -1 || b === -1) return
+      const [lo, hi] = a <= b ? [a, b] : [b, a]
+      const next = new Set(blocks.slice(lo, hi + 1).map((bl) => bl.id))
+      if (!selectionAnchor.current) selectionAnchor.current = anchorId
+      setSelectedIds(next)
+      containerRef.current?.focus()
+    },
+    [blocks, indexOf],
+  )
+
+  /** Grow/shrink the selection from the anchor in a direction (+1 / -1). */
+  const extendSelection = useCallback(
+    (dir: 1 | -1) => {
+      const ids = [...selectedIds]
+      if (ids.length === 0) return
+      const anchorId = selectionAnchor.current ?? ids[0]
+      const anchorIdx = indexOf(anchorId)
+      // The "moving" edge is whichever selected block isn't the anchor end.
+      const indices = ids.map(indexOf).sort((x, y) => x - y)
+      const lo = indices[0]
+      const hi = indices[indices.length - 1]
+      const movingEdge = anchorIdx === lo ? hi : lo
+      const target = Math.max(0, Math.min(blocks.length - 1, movingEdge + dir))
+      const [a, b] = anchorIdx <= target ? [anchorIdx, target] : [target, anchorIdx]
+      setSelectedIds(new Set(blocks.slice(a, b + 1).map((bl) => bl.id)))
+    },
+    [selectedIds, blocks, indexOf],
+  )
 
   // --- Structural operations ----------------------------------------------
 
@@ -136,6 +195,33 @@ export function BlockEditor({ initialBlocks, className }: BlockEditorProps) {
     [requestFocus],
   )
 
+  const deleteSelected = useCallback(() => {
+    setBlocks((prev) => {
+      const firstIdx = prev.findIndex((b) => selectedIds.has(b.id))
+      if (firstIdx === -1) return prev
+      const next = prev.filter((b) => !selectedIds.has(b.id))
+      if (next.length === 0) {
+        const fresh = createBlock('paragraph')
+        requestFocus({ blockId: fresh.id, offset: 0 })
+        return [fresh]
+      }
+      // Land on the survivor now occupying the first deleted slot (clamped).
+      const survivor = next[Math.min(firstIdx, next.length - 1)]
+      requestFocus({ blockId: survivor.id, offset: -1 })
+      return next
+    })
+    clearSelection()
+  }, [selectedIds, requestFocus, clearSelection])
+
+  /** Leave selection mode and edit a single block (caret at end). */
+  const editBlock = useCallback(
+    (id: string, offset = -1) => {
+      clearSelection()
+      requestFocus({ blockId: id, offset })
+    },
+    [clearSelection, requestFocus],
+  )
+
   const applySlashOption = useCallback(
     (state: SlashState, option: SlashOption) => {
       setBlocks((prev) => {
@@ -194,6 +280,24 @@ export function BlockEditor({ initialBlocks, className }: BlockEditorProps) {
     )
   }, [])
 
+  /**
+   * mousedown on a block's selection chrome. Shift+click range-selects (and
+   * suppresses the native text selection / focus). A plain click is left to
+   * fall through to the contenteditable, but if we're currently in selection
+   * mode it exits back to editing that block.
+   */
+  const handleSelectMouseDown = useCallback(
+    (e: MouseEvent, block: BlockData) => {
+      if (e.shiftKey) {
+        e.preventDefault() // don't start a native text selection
+        selectRange(block.id)
+        return
+      }
+      if (selecting) clearSelection()
+    },
+    [selectRange, selecting, clearSelection],
+  )
+
   const handleToggleCheck = useCallback((block: BlockData) => {
     setBlocks((prev) =>
       prev.map((b) =>
@@ -244,6 +348,14 @@ export function BlockEditor({ initialBlocks, className }: BlockEditorProps) {
           closeSlash()
           return
         }
+      }
+
+      // Escape (slash closed) drops out of editing into block selection.
+      if (e.key === 'Escape') {
+        e.preventDefault()
+        ;(e.currentTarget as HTMLElement).blur()
+        selectSingle(block.id)
+        return
       }
 
       const el = e.currentTarget
@@ -304,20 +416,84 @@ export function BlockEditor({ initialBlocks, className }: BlockEditorProps) {
       mergeIntoPrevious,
       deleteBlock,
       indexOf,
+      selectSingle,
+    ],
+  )
+
+  // Container-level key handling, active while blocks are selected (editables
+  // are blurred, so keystrokes land here).
+  const handleContainerKeyDown = useCallback(
+    (e: KeyboardEvent<HTMLDivElement>) => {
+      if (!selecting) return
+
+      if (e.key === 'Backspace' || e.key === 'Delete') {
+        e.preventDefault()
+        deleteSelected()
+        return
+      }
+      if (e.key === 'Escape') {
+        e.preventDefault()
+        clearSelection()
+        return
+      }
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'a') {
+        e.preventDefault()
+        selectionAnchor.current = blocks[0]?.id ?? null
+        setSelectedIds(new Set(blocks.map((b) => b.id)))
+        return
+      }
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault()
+        const dir = e.key === 'ArrowDown' ? 1 : -1
+        if (e.shiftKey) {
+          extendSelection(dir)
+          return
+        }
+        // Plain arrow: collapse to the edge block and resume editing it.
+        const indices = [...selectedIds].map(indexOf).sort((x, y) => x - y)
+        const edge = dir === 1 ? indices[indices.length - 1] : indices[0]
+        const target = blocks[Math.max(0, Math.min(blocks.length - 1, edge))]
+        if (target) editBlock(target.id, dir === 1 ? -1 : 0)
+        return
+      }
+      if (e.key === 'Enter') {
+        e.preventDefault()
+        const last = [...selectedIds].map(indexOf).sort((x, y) => x - y).pop()
+        const target = last != null ? blocks[last] : undefined
+        if (target && target.type !== 'divider') editBlock(target.id, -1)
+        return
+      }
+    },
+    [
+      selecting,
+      selectedIds,
+      blocks,
+      indexOf,
+      deleteSelected,
+      clearSelection,
+      extendSelection,
+      editBlock,
     ],
   )
 
   return (
-    <div className={cn('relative', className)}>
+    <div
+      ref={containerRef}
+      tabIndex={-1}
+      onKeyDown={handleContainerKeyDown}
+      className={cn('relative outline-none', selecting && 'select-none', className)}
+    >
       {blocks.map((block) => (
         <Block
           key={block.id}
           block={block}
+          selected={selectedIds.has(block.id)}
           registerRef={registerRef(block.id)}
           onKeyDown={handleKeyDown}
           onInput={handleInput}
           onBlur={handleBlur}
           onToggleCheck={handleToggleCheck}
+          onSelectMouseDown={handleSelectMouseDown}
         />
       ))}
 

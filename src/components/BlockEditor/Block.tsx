@@ -1,14 +1,23 @@
-import { useEffect, useRef, type KeyboardEvent } from 'react'
+import {
+  useEffect,
+  useRef,
+  type KeyboardEvent,
+  type MouseEvent,
+  type ReactNode,
+} from 'react'
 import { cn } from '@/lib/utils'
 import type { Block as BlockData } from './types'
 
 interface BlockProps {
   block: BlockData
+  selected: boolean
   registerRef: (el: HTMLElement | null) => void
   onKeyDown: (e: KeyboardEvent<HTMLDivElement>, block: BlockData) => void
   onInput: (block: BlockData, text: string) => void
   onBlur: (block: BlockData, text: string) => void
   onToggleCheck: (block: BlockData) => void
+  /** mousedown on the block's selection chrome (handles plain + shift click). */
+  onSelectMouseDown: (e: MouseEvent, block: BlockData) => void
 }
 
 const PLACEHOLDER: Record<string, string> = {
@@ -45,11 +54,13 @@ function editableClasses(block: BlockData): string {
 
 export function Block({
   block,
+  selected,
   registerRef,
   onKeyDown,
   onInput,
   onBlur,
   onToggleCheck,
+  onSelectMouseDown,
 }: BlockProps) {
   const editableRef = useRef<HTMLDivElement>(null)
 
@@ -68,9 +79,24 @@ export function Block({
     registerRef(el)
   }
 
+  // Selection chrome wraps every block variant. The ring/background paints when
+  // selected; mousedown drives plain + shift-click selection.
+  const wrap = (children: ReactNode) => (
+    <div
+      onMouseDown={(e) => onSelectMouseDown(e, block)}
+      data-selected={selected || undefined}
+      className={cn(
+        'rounded px-1 transition-colors',
+        selected && 'bg-blue-50 ring-1 ring-blue-300',
+      )}
+    >
+      {children}
+    </div>
+  )
+
   if (block.type === 'divider') {
     // Non-editable, but still focusable so Backspace can target it for removal.
-    return (
+    return wrap(
       <div
         ref={setRefs}
         tabIndex={0}
@@ -80,7 +106,7 @@ export function Block({
         aria-label="Divider"
       >
         <hr className="border-t border-gray-300 group-focus:border-gray-500" />
-      </div>
+      </div>,
     )
   }
 
@@ -104,16 +130,16 @@ export function Block({
   )
 
   if (block.type === 'list') {
-    return (
+    return wrap(
       <div className="flex items-start gap-2 py-0.5">
         <span className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
         {editable}
-      </div>
+      </div>,
     )
   }
 
   if (block.type === 'todo') {
-    return (
+    return wrap(
       <div className="flex items-start gap-2 py-0.5">
         <input
           type="checkbox"
@@ -124,22 +150,24 @@ export function Block({
           className="mt-[0.3em] h-4 w-4 shrink-0 cursor-pointer rounded border-gray-300"
         />
         {editable}
-      </div>
+      </div>,
     )
   }
 
   if (block.type === 'quote') {
-    return <div className="border-l-2 border-gray-300 pl-3 py-0.5">{editable}</div>
+    return wrap(
+      <div className="border-l-2 border-gray-300 pl-3 py-0.5">{editable}</div>,
+    )
   }
 
   if (block.type === 'callout') {
-    return (
+    return wrap(
       <div className="rounded-md border border-gray-200 bg-gray-50 px-3 py-2">
         {editable}
-      </div>
+      </div>,
     )
   }
 
   // paragraph + heading
-  return <div className="py-0.5">{editable}</div>
+  return wrap(<div className="py-0.5">{editable}</div>)
 }
