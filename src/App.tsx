@@ -10,6 +10,7 @@ const PositionContent = lazy(() => import('./components/DemoShowcase/PositionCon
 const LevaContent = lazy(() => import('./components/DemoShowcase/LevaContent'))
 const ToastContent = lazy(() => import('./components/DemoShowcase/ToastContent'))
 const PromptBoxContent = lazy(() => import('./components/DemoShowcase/PromptBoxContent'))
+const BlockEditorContent = lazy(() => import('./components/DemoShowcase/BlockEditorContent'))
 
 export default function App() {
   return (
@@ -57,6 +58,14 @@ export default function App() {
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <PromptBoxContent />
+              </Suspense>
+            }
+          />
+          <Route
+            path="block-editor"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <BlockEditorContent />
               </Suspense>
             }
           />
