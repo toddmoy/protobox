@@ -27,7 +27,6 @@ This is a React prototyping boilerplate built with:
   - `MCP.tsx` - Example card component demonstrating composition
   - `README.md` - Component development guidelines (heights, props, composition patterns)
 - `src/pages/` - Page components for routing
-  - `LevaDemo.tsx` - Interactive Leva controls demonstration
   - `PositionTest.tsx` - usePosition hook test page
   - `TypewriterDemo.tsx` - useTypewriter hook demonstration
 - `src/hooks/` - Custom React hooks

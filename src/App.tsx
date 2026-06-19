@@ -7,7 +7,6 @@ import { lazy, Suspense } from 'react'
 // Lazy load demo content components
 const TypewriterContent = lazy(() => import('./components/DemoShowcase/TypewriterContent'))
 const PositionContent = lazy(() => import('./components/DemoShowcase/PositionContent'))
-const LevaContent = lazy(() => import('./components/DemoShowcase/LevaContent'))
 const ToastContent = lazy(() => import('./components/DemoShowcase/ToastContent'))
 const PromptBoxContent = lazy(() => import('./components/DemoShowcase/PromptBoxContent'))
 
@@ -33,14 +32,6 @@ export default function App() {
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <PositionContent />
-              </Suspense>
-            }
-          />
-          <Route
-            path="leva-demo"
-            element={
-              <Suspense fallback={<div>Loading...</div>}>
-                <LevaContent />
               </Suspense>
             }
           />

@@ -23,7 +23,6 @@ import { MyPage } from './pages/MyPage'
 
 ## Existing Pages
 
-- **LevaDemo.tsx** - Interactive GUI controls demo
 - **PositionTest.tsx** - usePosition hook demo
 - **TypewriterDemo.tsx** - useTypewriter hook demo
 - **newPage.tsx** - Blank template

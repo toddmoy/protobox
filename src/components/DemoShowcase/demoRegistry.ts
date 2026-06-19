@@ -4,7 +4,6 @@ import type { Demo } from './demoTypes'
 // Lazy load content components
 const TypewriterContent = lazy(() => import('./TypewriterContent'))
 const PositionContent = lazy(() => import('./PositionContent'))
-const LevaContent = lazy(() => import('./LevaContent'))
 const ToastContent = lazy(() => import('./ToastContent'))
 const PromptBoxContent = lazy(() => import('./PromptBoxContent'))
 
@@ -32,14 +31,6 @@ export const DEMO_REGISTRY: Demo[] = [
     component: ToastContent,
     description: 'Toast notification system',
     path: '/components/useToast',
-  },
-  {
-    id: 'leva-demo',
-    label: 'Leva Demo',
-    section: 'Components',
-    component: LevaContent,
-    description: 'Interactive GUI controls for prototyping',
-    path: '/components/leva-demo',
   },
   {
     id: 'prompt-box',

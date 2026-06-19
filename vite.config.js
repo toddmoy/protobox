@@ -23,7 +23,6 @@ ${orange}   __   __   __  ___  __   __   __
     { name: 'shadcn/ui', desc: '34 pre-installed Radix-based components' },
     { name: 'Lucide React', desc: 'Icon library' },
     { name: 'React Icons', desc: 'Multi-library icon sets (Fi, Fa, Hi, etc.)' },
-    { name: 'Leva', desc: 'Runtime control panel for tweaking values' },
     { name: 'Faker', desc: 'Mock data generation' },
     { name: 'React Resizable Panels', desc: 'Draggable split panes' },
   ]

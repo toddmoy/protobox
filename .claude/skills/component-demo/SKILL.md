@@ -199,7 +199,7 @@ Playgrounds provide an interactive, Storybook-like environment with a canvas and
 
 ### Prop Type Mapping Reference
 
-When analyzing TypeScript props, map types to Leva controls:
+When analyzing TypeScript props, map types to PropSchema controls:
 
 | TypeScript Type | PropSchema Type | Notes |
 |-----------------|-----------------|-------|
@@ -323,7 +323,7 @@ After creating or updating component demos:
 
 ### Additional Checks for Playgrounds
 
-- [ ] Verify Leva props panel appears (top-right corner)
+- [ ] Verify the props panel appears
 - [ ] Test that prop changes update the component in real-time
 - [ ] Verify navigation collapse toggle works
 - [ ] Check canvas centering at different sizes
