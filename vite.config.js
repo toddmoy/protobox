@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import path from 'path'
 import fs from 'fs'
 import { defineConfig } from 'vite'
@@ -90,5 +91,16 @@ export default defineConfig({
       '.lhr.life',
       '.localhost.run',
     ],
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./src/test/setup.ts'],
+    css: true,
+    coverage: {
+      provider: 'v8',
+      include: ['src/**/*.{ts,tsx}'],
+      exclude: ['src/**/*.d.ts', 'src/test/**', 'src/**/index.ts'],
+    },
   },
 })
