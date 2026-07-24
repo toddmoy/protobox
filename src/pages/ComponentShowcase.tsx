@@ -78,7 +78,7 @@ export default function ComponentShowcase() {
               </span>
             </div>
             {/* Content */}
-            <div className="flex-1 overflow-auto">
+            <div className="flex-1 overflow-y-auto overflow-x-hidden">
               <div className="p-8">
                 <Outlet />
               </div>

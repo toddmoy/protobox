@@ -9,6 +9,8 @@ const TypewriterContent = lazy(() => import('./components/DemoShowcase/Typewrite
 const PositionContent = lazy(() => import('./components/DemoShowcase/PositionContent'))
 const ToastContent = lazy(() => import('./components/DemoShowcase/ToastContent'))
 const PromptBoxContent = lazy(() => import('./components/DemoShowcase/PromptBoxContent'))
+const CuelumeContent = lazy(() => import('./components/DemoShowcase/CuelumeContent'))
+const LucideIconsContent = lazy(() => import('./components/DemoShowcase/LucideIconsContent'))
 
 export default function App() {
   return (
@@ -48,6 +50,22 @@ export default function App() {
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <PromptBoxContent />
+              </Suspense>
+            }
+          />
+          <Route
+            path="lucide-icons"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <LucideIconsContent />
+              </Suspense>
+            }
+          />
+          <Route
+            path="cuelume"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <CuelumeContent />
               </Suspense>
             }
           />

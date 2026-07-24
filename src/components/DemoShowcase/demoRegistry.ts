@@ -6,6 +6,8 @@ const TypewriterContent = lazy(() => import('./TypewriterContent'))
 const PositionContent = lazy(() => import('./PositionContent'))
 const ToastContent = lazy(() => import('./ToastContent'))
 const PromptBoxContent = lazy(() => import('./PromptBoxContent'))
+const CuelumeContent = lazy(() => import('./CuelumeContent'))
+const LucideIconsContent = lazy(() => import('./LucideIconsContent'))
 
 export const DEMO_REGISTRY: Demo[] = [
   {
@@ -39,5 +41,21 @@ export const DEMO_REGISTRY: Demo[] = [
     component: PromptBoxContent,
     description: 'LLM chat input with state machine, pills, and submit button',
     path: '/components/prompt-box',
+  },
+  {
+    id: 'lucide-icons',
+    label: 'Lucide Icons',
+    section: 'Components',
+    component: LucideIconsContent,
+    description: 'Browse and copy all lucide-react icons',
+    path: '/components/lucide-icons',
+  },
+  {
+    id: 'cuelume',
+    label: 'Cuelume',
+    section: 'Components',
+    component: CuelumeContent,
+    description: 'Synthesized interaction sounds via Web Audio API',
+    path: '/components/cuelume',
   },
 ]
