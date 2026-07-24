@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { icons, Search, X, Check, SearchX } from 'lucide-react'
+import { play } from 'cuelume'
 import type { LucideProps } from 'lucide-react'
 
 type IconComponent = React.FC<LucideProps>
@@ -23,6 +24,7 @@ export default function LucideIconsContent() {
 
   const copy = (name: string) => {
     navigator.clipboard.writeText(name)
+    play('success')
     setCopied(name)
     setTimeout(() => setCopied(null), 1200)
   }
