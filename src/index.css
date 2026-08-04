@@ -2,7 +2,6 @@
 @import 'tailwindcss';
 
 @theme inline {
-  /* shadcn/ui tokens */
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
@@ -42,33 +41,6 @@
     from { height: var(--radix-accordion-content-height); }
     to { height: 0; }
   }
-
-  /* Zinnia design token mappings */
-  --color-zds-background: var(--zds-background-default);
-  --color-zds-background-weaker: var(--zds-background-weaker);
-  --color-zds-background-stronger: var(--zds-background-stronger);
-  --color-zds-background-strongest: var(--zds-background-strongest);
-  --color-zds-background-selected: var(--zds-background-selected);
-  --color-zds-text: var(--zds-text-default);
-  --color-zds-text-weaker: var(--zds-text-weaker);
-  --color-zds-text-weakest: var(--zds-text-weakest);
-  --color-zds-text-stronger: var(--zds-text-stronger);
-  --color-zds-text-link: var(--zds-text-link);
-  --color-zds-stroke: var(--zds-stroke-default);
-  --color-zds-stroke-weaker: var(--zds-stroke-weaker);
-  --color-zds-stroke-stronger: var(--zds-stroke-stronger);
-  --color-zds-brand: var(--zds-ui-brand);
-  --color-zds-brand-weaker: var(--zds-ui-brand-weaker);
-  --color-zds-brand-stronger: var(--zds-ui-brand-stronger);
-  --color-zds-error: var(--zds-status-error);
-  --color-zds-error-weaker: var(--zds-status-error-weaker);
-  --color-zds-warning: var(--zds-status-warning);
-  --color-zds-warning-weaker: var(--zds-status-warning-weaker);
-  --color-zds-success: var(--zds-status-success);
-  --color-zds-success-weaker: var(--zds-status-success-weaker);
-  --font-zds-sans: var(--zds-inter);
-  --font-zds-display: var(--zds-degular);
-  --font-zds-mono: var(--zds-jet-brains-mono);
 }
 
 /* Helper utilities */

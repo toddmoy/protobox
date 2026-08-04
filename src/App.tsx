@@ -19,7 +19,6 @@ export default function App() {
         <Route path="/" Component={Welcome} />
 
         {/* Component Showcase with nested routes */}
-        {/* Component Showcase with nested routes */}
         <Route path="/components" element={<ComponentShowcase />}>
           <Route index element={<Navigate to="/components/useTypewriter" replace />} />
           <Route
