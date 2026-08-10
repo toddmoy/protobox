@@ -24,7 +24,22 @@ npx vercel --version
 
 If this fails, run `pnpm add -D vercel` then retry.
 
-## Step 2 — Build the project
+## Step 2 — Show current user and ask which team to deploy to
+
+Run both commands:
+
+```bash
+npx vercel whoami 2>&1
+npx vercel teams ls 2>&1
+```
+
+Tell the user who they're signed in as (from `whoami` output). Then list the available teams from `teams ls` and ask: **"Which team should this be deployed to?"** Wait for the user's answer before continuing.
+
+If `whoami` returns an auth error, tell the user to run `! npx vercel login` in the terminal and stop.
+
+Store the chosen team slug for use in Step 5.
+
+## Step 3 — Build the project
 
 ```bash
 pnpm build
@@ -32,7 +47,7 @@ pnpm build
 
 If the build fails, stop and report the error. Do not deploy a broken build.
 
-## Step 3 — Detect whether the project is already linked
+## Step 4 — Detect whether the project is already linked
 
 Check for `.vercel/project.json`:
 
@@ -40,20 +55,22 @@ Check for `.vercel/project.json`:
 cat .vercel/project.json 2>/dev/null
 ```
 
-- **File exists** → project is already linked, proceed to Step 4.
-- **File absent** → this is a first-time deploy. `vercel --prod --yes` will create, link, and deploy in one shot.
+- **File exists** → project is already linked, proceed to Step 5.
+- **File absent** → this is a first-time deploy. The deploy command in Step 5 will create, link, and deploy in one shot.
 
-## Step 4 — Deploy
+## Step 5 — Deploy
+
+Use the team slug chosen in Step 2:
 
 ```bash
-npx vercel --prod --yes 2>&1
+npx vercel --prod --yes --scope <team-slug> 2>&1
 ```
 
-The `--yes` flag accepts all defaults non-interactively. The `--prod` flag deploys to the production URL (not a preview).
+The `--scope` flag targets the chosen team. The `--yes` flag accepts all defaults non-interactively. The `--prod` flag deploys to the production URL (not a preview).
 
 Capture the full output.
 
-## Step 5 — Extract and report the URL
+## Step 6 — Extract and report the URL
 
 Parse the CLI output for the production URL. It appears as a line like:
 ```
