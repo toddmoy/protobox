@@ -6,6 +6,9 @@ triggers:
   - "deploy to vercel"
   - "push to vercel"
   - "ship it"
+  - "make public"
+  - "make it public"
+  - "share the link"
   - "/deploy"
 ---
 
@@ -66,6 +69,16 @@ Deployed: <url>
 ```
 
 If no URL is found in the output, print the raw CLI output so the user can debug.
+
+## Making the deployment publicly accessible
+
+Vercel enables Deployment Protection by default, which requires visitors to authenticate. To make the URL accessible to anyone:
+
+1. Open the project dashboard: `https://vercel.com/dashboard` → select the project → **Settings** → **Deployment Protection**
+2. Set **Vercel Authentication** to **Disabled**
+3. Save
+
+This is a one-time change per project. Once disabled, all deployments (current and future) are publicly accessible.
 
 ## Error handling
 
